@@ -397,24 +397,21 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
 /* ---- PREVIEW GATE: remove this whole block at launch ---- */
 #gate{position:fixed;inset:0;z-index:400;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center;background:radial-gradient(120% 90% at 50% 20%,#22366f 0%,var(--navy-deep) 46%,var(--navy-deeper) 100%);color:#fff;transition:opacity .9s ease;overflow:auto;padding:max(18px,env(safe-area-inset-top)) 18px max(18px,env(safe-area-inset-bottom))}
 #gate.open{opacity:0;pointer-events:none}
-#gate .gvid{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:#101c3c;opacity:1;transition:opacity .45s ease}
+#gate .gvid,#gate .gvid2{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:#101c3c;opacity:1;transition:opacity .45s ease}
 #gate .gvid.out{opacity:0;pointer-events:none}
-#gate .gvid video{width:100%;height:100%;object-fit:contain}
+#gate .gvid video,#gate .gvid2 video{width:100%;height:100%;object-fit:contain}
+#gate .gvid2{z-index:3;opacity:0;pointer-events:none;transition:opacity .55s ease}
+#gate.outro .gvid2{opacity:1;pointer-events:auto}
 #gate .grow{display:flex;align-items:center;justify-content:center;gap:14px}
 #gate .ggo{flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:var(--gold-soft);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s ease,background .2s ease;-webkit-tap-highlight-color:transparent}
 #gate .ggo svg{width:19px;height:19px}
 #gate .ggo:hover,#gate .ggo:focus-visible{border-color:var(--gold);background:rgba(184,149,90,.12);outline:none}
-@media(max-height:640px){#gate .gform{margin-top:12px}#gate .ghint{margin-top:8px}#gate .glabel{margin-bottom:8px}#gate .gdef{margin-top:14px}#gate .gdd{margin-top:6px}}
-#gate .gmark{display:block;width:min(88px,20vw);color:var(--gold-soft);opacity:0;transform:translateY(14px)}
+@media(max-height:640px){#gate .gform{margin-top:12px}#gate .ghint{margin-top:8px}#gate .glabel{margin-bottom:8px}}
+#gate .gmark{display:block;width:min(96px,22vw);color:var(--gold-soft);opacity:0;transform:translateY(14px)}
 #gate .gmark svg{display:block;width:100%;aspect-ratio:1529.2/2001}
 #gate.code .gmark{animation:gfade .8s cubic-bezier(.22,.9,.35,1) .05s forwards}
-#gate .gdef{margin-top:22px;opacity:0;transform:translateY(14px);max-width:min(560px,88vw)}
-#gate.code .gdef{animation:gfade .85s cubic-bezier(.22,.9,.35,1) .2s forwards}
-#gate .gdw{font-family:var(--serif);font-size:clamp(1.5rem,3.6vw,2rem);color:#fff;letter-spacing:.02em}
-#gate .gdp{font-family:var(--sans);font-size:clamp(.72rem,1.6vw,.82rem);letter-spacing:.12em;color:rgba(255,255,255,.55);margin-top:5px}
-#gate .gdd{font-family:var(--serif);font-style:italic;font-size:clamp(.98rem,2.3vw,1.18rem);line-height:1.55;color:rgba(255,255,255,.75);margin-top:10px}
-#gate .gform{margin-top:30px;opacity:0;transform:translateY(10px)}
-#gate.code .gform{animation:gfade .8s ease .55s forwards}
+#gate .gform{margin-top:34px;opacity:0;transform:translateY(10px)}
+#gate.code .gform{animation:gfade .8s ease .4s forwards}
 #gate .glabel{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);display:block;margin-bottom:12px}
 #gate input{background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,.28);color:#fff;font-family:var(--serif);font-size:1.7rem;letter-spacing:.55em;text-align:center;width:min(172px,44vw);padding:6px 0 10px .55em;transition:border-color .25s ease}
 #gate input:focus{outline:none;border-color:var(--gold)}
@@ -422,7 +419,7 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
 #gate .ghint{font-family:var(--sans);font-size:.78rem;color:rgba(255,255,255,.4);margin-top:18px}
 @keyframes gfade{to{opacity:1;transform:none}}
 @keyframes gshake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
-@media(prefers-reduced-motion:reduce){#gate.code .gmark,#gate.code .gdef,#gate.code .gform{animation:none;opacity:1;transform:none}#gate.err input{animation:none}}
+@media(prefers-reduced-motion:reduce){#gate.code .gmark,#gate.code .gform{animation:none;opacity:1;transform:none}#gate.err input{animation:none}}
 body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
 /* ---- end PREVIEW GATE ---- */
 </style>
@@ -436,12 +433,10 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
   <div class="gvid" aria-hidden="true">
     <video id="gvideo" muted playsinline preload="auto"><source src="waypoint-intro.mp4" type="video/mp4"><source src="waypoint-intro.webm" type="video/webm"></video>
   </div>
-  <span class="gmark" aria-hidden="true"><svg viewBox="0 0 1529.2 2001"><use href="#wm"/></svg></span>
-  <div class="gdef">
-    <div class="gdw">way&middot;point</div>
-    <div class="gdp">noun &middot; &#712;w&#257;&#809;point</div>
-    <p class="gdd">A fixed point on a longer journey, used to find your bearing before moving on.</p>
+  <div class="gvid2" aria-hidden="true">
+    <video id="gvideo2" muted playsinline preload="none"><source src="waypoint-defn.mp4" type="video/mp4"><source src="waypoint-defn.webm" type="video/webm"></video>
   </div>
+  <span class="gmark" aria-hidden="true"><svg viewBox="0 0 1529.2 2001"><use href="#wm"/></svg></span>
   <form class="gform" autocomplete="off">
     <label class="glabel" for="gcode">Preview access code</label>
     <div class="grow">
@@ -820,6 +815,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
           g.classList.add('code');
           if(vwrap){vwrap.classList.add('out');try{vid.pause()}catch(e){}
             setTimeout(function(){if(vwrap.parentNode)vwrap.parentNode.removeChild(vwrap)},520);}
+          try{var v2=g.querySelector('#gvideo2');if(v2)v2.load();}catch(e){} /* preload part 2 while code is typed */
           setTimeout(function(){try{if(window.matchMedia('(hover:hover)').matches)input.focus()}catch(e){}},1300);
         }
         if(reduce||!vid){cut();return;}
@@ -831,12 +827,27 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
         g.addEventListener('click',function(e){if(!e.target.closest('.gform'))cut()});
       })();
       var form=g.querySelector('.gform'),input=g.querySelector('#gcode');
+      function unlock(){
+        if(g.classList.contains('open'))return;
+        g.classList.add('open');document.body.classList.remove('gated');
+        setTimeout(function(){if(g.parentNode)g.parentNode.removeChild(g)},950);
+      }
       function tryCode(){
         if(input.value.trim()==='1234'){
           try{sessionStorage.setItem('wpGate','1')}catch(e){}
-          g.classList.add('open');document.body.classList.remove('gated');
           try{input.blur()}catch(e){}
-          setTimeout(function(){if(g.parentNode)g.parentNode.removeChild(g)},950);
+          /* -- part 2 video: definition scene between passcode and site -- */
+          var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+          var ov=g.querySelector('.gvid2'),v2=g.querySelector('#gvideo2');
+          if(reduce||!v2){unlock();return;}
+          g.classList.add('outro');
+          var fin2=false;var fin=function(){if(fin2)return;fin2=true;unlock();};
+          v2.addEventListener('ended',fin);
+          v2.addEventListener('error',fin);
+          setTimeout(fin,9500); /* failsafe */
+          var p2=v2.play&&v2.play();
+          if(p2&&p2.catch)p2.catch(fin);
+          if(ov)ov.addEventListener('click',fin); /* tap to skip */
         }else{
           g.classList.remove('err');void g.offsetWidth;g.classList.add('err');
           input.value='';input.focus();
