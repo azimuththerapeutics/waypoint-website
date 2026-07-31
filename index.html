@@ -186,6 +186,10 @@ section[id]{scroll-margin-top:84px}
 .member .role{font-family:var(--sans);font-size:.82rem;color:var(--muted)}
 .member .cert{font-family:var(--sans);font-size:.68rem;color:var(--muted);margin-top:5px;line-height:1.5}
 .team-note{text-align:center;margin-top:44px;color:var(--muted);font-size:.95rem}
+.team-band{margin:72px auto 0;max-width:1280px;padding:0 var(--pad);position:relative}
+.team-band img{width:100%;height:auto;display:block;border-radius:var(--r);box-shadow:0 24px 70px rgba(24,34,74,.18)}
+.team-band figcaption{position:absolute;left:calc(var(--pad) + 22px);bottom:18px;font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(16,23,48,.55);padding:8px 14px;border-radius:6px;backdrop-filter:blur(4px)}
+@media(max-width:700px){.team-band{margin-top:52px}.team-band figcaption{font-size:.62rem;left:calc(var(--pad) + 12px);bottom:12px}}
 
 /* testimonials */
 .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
@@ -650,6 +654,10 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
       </div>
     </div>
   </div>
+  <figure class="team-band fade">
+    <img src="team-photo.jpg" alt="The five clinician-owners of Waypoint Cooperative standing together on the iron fire escape of a brick mill building in Torrington" width="1920" height="872" loading="lazy">
+    <figcaption>The five owners — Torrington, Connecticut</figcaption>
+  </figure>
 </section>
 
 <section class="sec bg-cream" id="fees">
