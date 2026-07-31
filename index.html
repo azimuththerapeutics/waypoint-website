@@ -404,11 +404,13 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
 #gate .ggo:hover,#gate .ggo:focus-visible{border-color:var(--gold);background:rgba(184,149,90,.12);outline:none}
 @media(max-height:640px){#gate .ganim{width:min(640px,92vw,calc((100dvh - 300px)*1.73))}#gate .gform{margin-top:12px}#gate .ghint{margin-top:8px}#gate .glabel{margin-bottom:8px}#gate .gdef{margin-top:14px}#gate .gdd{margin-top:6px}}
 #gate .ganim svg{color:inherit}
-#gate .gdef{margin-top:30px;opacity:0;animation:gfade 1.2s ease 5.9s forwards;max-width:min(560px,88vw)}
+#gate .gdef{margin-top:26px;opacity:0;transform:translateY(14px);animation:gfade 1.1s cubic-bezier(.22,.9,.35,1) 5.35s forwards;max-width:min(560px,88vw)}
 #gate .gdw{font-family:var(--serif);font-size:clamp(1.5rem,3.6vw,2rem);color:#fff;letter-spacing:.02em}
 #gate .gdp{font-family:var(--sans);font-size:clamp(.72rem,1.6vw,.82rem);letter-spacing:.12em;color:rgba(255,255,255,.55);margin-top:5px}
 #gate .gdd{font-family:var(--serif);font-style:italic;font-size:clamp(.98rem,2.3vw,1.18rem);line-height:1.55;color:rgba(255,255,255,.75);margin-top:10px}
-#gate .gform{margin-top:26px;opacity:0;animation:gfade 1s ease 5.2s forwards}
+#gate .gform{margin-top:30px;opacity:0;transform:translateY(10px);animation:gfade .9s ease 6.7s forwards}
+#gate.fin .gdef{animation:gfade .8s cubic-bezier(.22,.9,.35,1) .1s forwards}
+#gate.fin .gform{animation:gfade .7s ease .5s forwards}
 #gate .glabel{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);display:block;margin-bottom:12px}
 #gate input{background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,.28);color:#fff;font-family:var(--serif);font-size:1.7rem;letter-spacing:.55em;text-align:center;width:min(172px,44vw);padding:6px 0 10px .55em;transition:border-color .25s ease}
 #gate input:focus{outline:none;border-color:var(--gold)}
@@ -446,19 +448,19 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
     </svg>
   </svg>
 </div>
-  <form class="gform" autocomplete="off">
-    <label class="glabel" for="gcode">Preview access code</label>
-    <div class="grow">
-      <input id="gcode" type="password" inputmode="numeric" autocomplete="one-time-code" maxlength="8" aria-label="Preview access code" autofocus>
-      <button type="submit" class="ggo" aria-label="Enter code"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
-    </div>
-    <div class="ghint">This site is in preview. Enter the code shared with you.</div>
-  </form>
   <div class="gdef">
     <div class="gdw">way&middot;point</div>
     <div class="gdp">noun &middot; &#712;w&#257;&#809;point</div>
     <p class="gdd">A fixed point on a longer journey, used to find your bearing before moving on.</p>
   </div>
+  <form class="gform" autocomplete="off">
+    <label class="glabel" for="gcode">Preview access code</label>
+    <div class="grow">
+      <input id="gcode" type="password" inputmode="numeric" autocomplete="one-time-code" maxlength="8" aria-label="Preview access code">
+      <button type="submit" class="ggo" aria-label="Enter code"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+    </div>
+    <div class="ghint">This site is in preview. Enter the code shared with you.</div>
+  </form>
 </div>
 <a class="skip" href="#practice">Skip to content</a>
 
@@ -849,17 +851,17 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
           wordr.setAttribute('width',402*w);
           wordg.setAttribute('opacity',Math.min(1,w*3));
         }
-        function finish(){if(done)return;done=true;frame(1);}
+        function finish(skip){if(done)return;done=true;frame(1);if(skip)g.classList.add('fin');}
         if(reduce){finish();}
         else{
           frame(0);
           var raf=function(ts){if(done)return;if(!t0)t0=ts;var p=(ts-t0)/DUR;if(p>=1){finish();return}frame(p);requestAnimationFrame(raf)};
           requestAnimationFrame(raf);
-          g.addEventListener('click',function(e){if(!e.target.closest('.gform'))finish()});
+          g.addEventListener('click',function(e){if(!e.target.closest('.gform'))finish(true)});
         }
       })();
       var form=g.querySelector('.gform'),input=g.querySelector('#gcode');
-      setTimeout(function(){try{input.focus()}catch(e){}},2000);
+      setTimeout(function(){try{if(window.matchMedia('(hover:hover)').matches)input.focus()}catch(e){}},7100);
       function tryCode(){
         if(input.value.trim()==='1234'){
           try{sessionStorage.setItem('wpGate','1')}catch(e){}
