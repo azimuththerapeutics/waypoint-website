@@ -403,6 +403,10 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
 #gate .gvid video,#gate .gvid2 video{width:100%;height:100%;object-fit:contain}
 #gate .gvid2{z-index:3;opacity:0;pointer-events:none;transition:opacity .55s ease}
 #gate.outro .gvid2{opacity:1;pointer-events:auto}
+#gate .genter{position:absolute;left:50%;bottom:max(48px,9vh);transform:translateX(-50%);width:58px;height:58px;border-radius:50%;border:1.5px solid var(--gold);background:rgba(16,28,60,.55);color:var(--gold-soft);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .8s ease,background .2s ease,border-color .2s ease;-webkit-tap-highlight-color:transparent}
+#gate .genter svg{width:24px;height:24px}
+#gate .genter.on{opacity:1}
+#gate .genter:hover,#gate .genter:focus-visible{background:var(--gold);color:var(--navy-deeper);outline:none}
 #gate .grow{display:flex;align-items:center;justify-content:center;gap:14px}
 #gate .ggo{flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:var(--gold-soft);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s ease,background .2s ease;-webkit-tap-highlight-color:transparent}
 #gate .ggo svg{width:19px;height:19px}
@@ -434,8 +438,9 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
   <div class="gvid" aria-hidden="true">
     <video id="gvideo" muted playsinline preload="auto"><source src="waypoint-intro.mp4" type="video/mp4"><source src="waypoint-intro.webm" type="video/webm"></video>
   </div>
-  <div class="gvid2" aria-hidden="true">
-    <video id="gvideo2" muted playsinline preload="none"><source src="waypoint-defn.mp4" type="video/mp4"><source src="waypoint-defn.webm" type="video/webm"></video>
+  <div class="gvid2">
+    <video id="gvideo2" muted playsinline preload="none" aria-hidden="true"><source src="waypoint-defn.mp4" type="video/mp4"><source src="waypoint-defn.webm" type="video/webm"></video>
+    <button type="button" class="genter" id="genter" hidden aria-label="Enter the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
   </div>
   <span class="gmark" aria-hidden="true"><svg viewBox="0 0 1529.2 2001"><use href="#wm"/></svg></span>
   <form class="gform" autocomplete="off">
@@ -570,7 +575,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
     <div class="quote-card fade">
       <div class="qmark">&ldquo;</div>
       <p>We built Waypoint because we wanted a practice we'd actually want to work in — and one we'd refer our own families to.</p>
-      <cite>— Erin O'Neil, LCSW · Chief Executive Officer</cite>
+      <cite>— Erin O'Neil, MSW, LCSW, LICSW · Founder &amp; Chief Executive Officer</cite>
       <span class="watermark"><svg viewBox="0 0 24 24"><use href="#wm"/></svg></span>
     </div>
   </div>
@@ -601,7 +606,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
       <div class="svc">
         <div class="idx">02</div>
         <h3>Trauma &amp; Grief Recovery</h3>
-        <p>EMDR — with an EMDRIA Certified Therapist&trade; and Approved Consultant&trade; on staff — plus Brainspotting, art therapy, and trauma-informed approaches for processing what talk alone can't reach.</p>
+        <p>EMDR — with EMDRIA Certified Therapists&trade; and Approved Consultants&trade; on staff — plus Brainspotting, art therapy, and trauma-informed approaches for processing what talk alone can't reach.</p>
       </div>
       <div class="svc">
         <div class="idx">03</div>
@@ -649,7 +654,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
       <div class="svc">
         <div class="idx">02</div>
         <h3>EMDR Consultation</h3>
-        <p>Individual and group consultation toward EMDRIA certification, with an EMDRIA-Approved Consultant on staff.</p>
+        <p>Individual and group consultation toward EMDRIA certification, with EMDRIA Approved Consultants&trade; on staff.</p>
       </div>
       <div class="svc">
         <div class="idx">03</div>
@@ -680,19 +685,19 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
         <div class="hsub">One member · One vote</div>
       </div>
             <div class="spoke" style="transform:translate(0px,-330px) translateY(-50%)">
-        <div class="member"><div class="avatar">EO</div><h3>Erin O'Neil</h3><div class="creds">MSW · LCSW · LICSW</div><div class="role">Chief Executive Officer</div><div class="cert">EMDRIA Certified Therapist™<br>EMDRIA Approved Consultant™</div></div>
+        <div class="member"><div class="avatar">EO</div><h3>Erin O'Neil</h3><div class="creds">MSW · LCSW · LICSW</div><div class="role">Founder · Chief Executive Officer <span class="pro">(she/her)</span></div><div class="cert">EMDRIA Certified Therapist™<br>EMDRIA Approved Consultant™</div></div>
       </div>
       <div class="spoke" style="transform:translate(314px,-102px) translateY(-50%)">
-        <div class="member"><div class="avatar">AA</div><h3>Arthur Anderson</h3><div class="creds">APRN · PMHNP-BC · LCSW</div><div class="role">Chief Medical Officer</div></div>
+        <div class="member"><div class="avatar">AA</div><h3>Arthur Anderson</h3><div class="creds">MSN · MSW · APRN · PMHNP-BC · LCSW</div><div class="role">Founder · Chief Medical Officer <span class="pro">(he/him)</span></div></div>
       </div>
       <div class="spoke" style="transform:translate(194px,267px) translateY(-50%)">
-        <div class="member"><div class="avatar">AN</div><h3>Anthony Nave</h3><div class="creds">LICSW · LADC · ACS</div><div class="role">Founder · Chief Clinical Officer <span class="pro">(he/him)</span></div></div>
+        <div class="member"><div class="avatar">AN</div><h3>Anthony Nave</h3><div class="creds">LICSW · LADC · ACS</div><div class="role">Founder · Chief Clinical Officer <span class="pro">(he/him)</span></div><div class="cert">EMDRIA Certified Therapist™<br>EMDRIA Approved Consultant™</div></div>
       </div>
       <div class="spoke" style="transform:translate(-194px,267px) translateY(-50%)">
-        <div class="member"><div class="avatar">TR</div><h3>Tiffany Rollo</h3><div class="creds">LPC · ATR</div><div class="role">Chief Program Development Officer <span class="pro">(she/her)</span></div></div>
+        <div class="member"><div class="avatar">TR</div><h3>Tiffany Rollo</h3><div class="creds">LPC · ATR</div><div class="role">Founder · Chief Program Development Officer <span class="pro">(she/her)</span></div></div>
       </div>
       <div class="spoke" style="transform:translate(-314px,-102px) translateY(-50%)">
-        <div class="member"><div class="avatar">SK</div><h3>Seon W. Kim</h3><div class="creds">PhD · LMFT · AAMFT Approved Supervisor</div><div class="role">Chief Research Officer</div></div>
+        <div class="member"><div class="avatar">SK</div><h3>Seon W. Kim</h3><div class="creds">PhD · LMFT</div><div class="role">Founder · Chief Research Officer <span class="pro">(he/him)</span></div><div class="cert">AAMFT Approved Supervisor</div></div>
       </div>
     </div>
   </div>
@@ -781,7 +786,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
       </div>
       <div class="foot">
         <div class="fh">Practice</div>
-        <ul><li><a href="#practice">The Practice</a></li><li><a href="#services">For Clients</a></li><li><a href="#clinicians">For Clinicians</a></li><li><a href="#team">Our Team</a></li><li><a href="#fees">Fees &amp; Insurance</a></li></ul>
+        <ul><li><a href="#practice">The Practice</a></li><li><a href="#services">For Clients</a></li><li><a href="#clinicians">For Clinicians</a></li><li><a href="#team">Our Team</a></li><li><a href="#fees">Fees &amp; Insurance</a></li><li><a href="privacy.html">Privacy Policy</a></li></ul>
       </div>
       <div class="foot">
         <div class="fh">Clients</div>
@@ -848,11 +853,21 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
           var ov=g.querySelector('.gvid2'),v2=g.querySelector('#gvideo2');
           if(reduce||!v2){unlock();return;}
           g.classList.add('outro');
-          /* full watch: plays to the end, no skipping */
+          /* full watch: plays to the end, no skipping; arrow appears at the end to enter the site.
+             GO-LIVE NOTE: when the passcode is removed, chain intro -> defn videos and let them
+             play straight through into the site (call unlock() on 'ended' instead of showing the arrow). */
           var fin2=false;var fin=function(){if(fin2)return;fin2=true;unlock();};
-          v2.addEventListener('ended',fin);
+          var arrow=g.querySelector('#genter');
+          v2.addEventListener('ended',function(){
+            if(arrow){arrow.hidden=false;requestAnimationFrame(function(){arrow.classList.add('on')});try{arrow.focus()}catch(e){}
+              arrow.addEventListener('click',fin);
+              if(ov)ov.addEventListener('click',fin); /* whole final frame is clickable too */
+            }else{fin();}
+          });
           v2.addEventListener('error',fin);
-          setTimeout(fin,11000); /* failsafe if video stalls */
+          setTimeout(function(){ /* stall failsafe: if video never ended AND arrow never shown, let them in */
+            if(!fin2&&(!arrow||arrow.hidden))fin();
+          },12000);
           var p2=v2.play&&v2.play();
           if(p2&&p2.catch)p2.catch(fin);
         }else{
