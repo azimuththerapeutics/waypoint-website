@@ -395,21 +395,29 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
 
 
 /* ---- PREVIEW GATE: remove this whole block at launch ---- */
-#gate{position:fixed;inset:0;z-index:400;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center;background:radial-gradient(120% 90% at 50% 20%,#22366f 0%,var(--navy-deep) 46%,var(--navy-deeper) 100%);color:#fff;transition:opacity .9s ease}
+#gate{position:fixed;inset:0;z-index:400;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center;background:radial-gradient(120% 90% at 50% 20%,#22366f 0%,var(--navy-deep) 46%,var(--navy-deeper) 100%);color:#fff;transition:opacity .9s ease;overflow:auto;padding:max(18px,env(safe-area-inset-top)) 18px max(18px,env(safe-area-inset-bottom))}
 #gate.open{opacity:0;pointer-events:none}
-#gate .ganim{display:block;width:min(680px,90vw);aspect-ratio:538.35/311.01;color:var(--gold-soft);filter:drop-shadow(0 12px 44px rgba(0,0,0,.35))}
+#gate .ganim{display:block;width:min(640px,92vw,calc((100vh - 400px)*1.73));width:min(640px,92vw,calc((100dvh - 400px)*1.73));min-width:240px;aspect-ratio:538.35/311.01;color:var(--gold-soft);filter:drop-shadow(0 12px 44px rgba(0,0,0,.35))}
+#gate .grow{display:flex;align-items:center;justify-content:center;gap:14px}
+#gate .ggo{flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:var(--gold-soft);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s ease,background .2s ease;-webkit-tap-highlight-color:transparent}
+#gate .ggo svg{width:19px;height:19px}
+#gate .ggo:hover,#gate .ggo:focus-visible{border-color:var(--gold);background:rgba(184,149,90,.12);outline:none}
+@media(max-height:640px){#gate .ganim{width:min(640px,92vw,calc((100dvh - 300px)*1.73))}#gate .gform{margin-top:12px}#gate .ghint{margin-top:8px}#gate .glabel{margin-bottom:8px}#gate .gdef{margin-top:14px}#gate .gdd{margin-top:6px}}
 #gate .ganim svg{color:inherit}
-#gate .gtag{font-family:var(--serif);font-style:italic;font-size:clamp(1rem,2.6vw,1.2rem);color:rgba(255,255,255,.72);margin-top:2px;opacity:0;animation:gfade 1s ease 5.1s forwards}
-#gate .gform{margin-top:30px;opacity:0;animation:gfade 1s ease 5.5s forwards}
+#gate .gdef{margin-top:30px;opacity:0;animation:gfade 1.2s ease 5.9s forwards;max-width:min(560px,88vw)}
+#gate .gdw{font-family:var(--serif);font-size:clamp(1.5rem,3.6vw,2rem);color:#fff;letter-spacing:.02em}
+#gate .gdp{font-family:var(--sans);font-size:clamp(.72rem,1.6vw,.82rem);letter-spacing:.12em;color:rgba(255,255,255,.55);margin-top:5px}
+#gate .gdd{font-family:var(--serif);font-style:italic;font-size:clamp(.98rem,2.3vw,1.18rem);line-height:1.55;color:rgba(255,255,255,.75);margin-top:10px}
+#gate .gform{margin-top:26px;opacity:0;animation:gfade 1s ease 5.2s forwards}
 #gate .glabel{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);display:block;margin-bottom:12px}
-#gate input{background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,.28);color:#fff;font-family:var(--serif);font-size:1.7rem;letter-spacing:.55em;text-align:center;width:172px;padding:6px 0 10px .55em;transition:border-color .25s ease}
+#gate input{background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,.28);color:#fff;font-family:var(--serif);font-size:1.7rem;letter-spacing:.55em;text-align:center;width:min(172px,44vw);padding:6px 0 10px .55em;transition:border-color .25s ease}
 #gate input:focus{outline:none;border-color:var(--gold)}
 #gate.err input{border-color:#e8938a;animation:gshake .4s ease}
 #gate .ghint{font-family:var(--sans);font-size:.78rem;color:rgba(255,255,255,.4);margin-top:18px}
 @keyframes gfade{to{opacity:1;transform:none}}
 @keyframes gshake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
-@media(prefers-reduced-motion:reduce){#gate .gtag,#gate .gform{animation:none;opacity:1;transform:none}#gate.err input{animation:none}}
-body.gated{overflow:hidden}
+@media(prefers-reduced-motion:reduce){#gate .gdef,#gate .gform{animation:none;opacity:1;transform:none}#gate.err input{animation:none}}
+body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
 /* ---- end PREVIEW GATE ---- */
 </style>
 </head>
@@ -438,12 +446,19 @@ body.gated{overflow:hidden}
     </svg>
   </svg>
 </div>
-  <div class="gtag">Growing together.</div>
   <form class="gform" autocomplete="off">
     <label class="glabel" for="gcode">Preview access code</label>
-    <input id="gcode" type="password" inputmode="numeric" maxlength="8" aria-label="Preview access code" autofocus>
+    <div class="grow">
+      <input id="gcode" type="password" inputmode="numeric" autocomplete="one-time-code" maxlength="8" aria-label="Preview access code" autofocus>
+      <button type="submit" class="ggo" aria-label="Enter code"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+    </div>
     <div class="ghint">This site is in preview. Enter the code shared with you.</div>
   </form>
+  <div class="gdef">
+    <div class="gdw">way&middot;point</div>
+    <div class="gdp">noun &middot; &#712;w&#257;&#809;point</div>
+    <p class="gdd">A fixed point on a longer journey, used to find your bearing before moving on.</p>
+  </div>
 </div>
 <a class="skip" href="#practice">Skip to content</a>
 
@@ -845,16 +860,20 @@ body.gated{overflow:hidden}
       })();
       var form=g.querySelector('.gform'),input=g.querySelector('#gcode');
       setTimeout(function(){try{input.focus()}catch(e){}},2000);
-      form.addEventListener('submit',function(e){
-        e.preventDefault();
+      function tryCode(){
         if(input.value.trim()==='1234'){
           try{sessionStorage.setItem('wpGate','1')}catch(e){}
           g.classList.add('open');document.body.classList.remove('gated');
+          try{input.blur()}catch(e){}
           setTimeout(function(){if(g.parentNode)g.parentNode.removeChild(g)},950);
         }else{
           g.classList.remove('err');void g.offsetWidth;g.classList.add('err');
           input.value='';input.focus();
         }
+      }
+      form.addEventListener('submit',function(e){e.preventDefault();tryCode();});
+      input.addEventListener('input',function(){
+        if(input.value.length>=4){setTimeout(tryCode,140);}
       });
     }
   }
