@@ -396,36 +396,47 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
 
 
 /* ---- PREVIEW GATE: remove this whole block at launch ---- */
-#gate{position:fixed;inset:0;z-index:400;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center;background:radial-gradient(120% 90% at 50% 20%,#22366f 0%,var(--navy-deep) 46%,var(--navy-deeper) 100%);color:#fff;transition:opacity .9s ease;overflow:auto;padding:max(18px,env(safe-area-inset-top)) 18px max(18px,env(safe-area-inset-bottom))}
+#gate{position:fixed;inset:0;z-index:400;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center;background:radial-gradient(120% 90% at 50% 20%,#22366f 0%,var(--navy-deep) 46%,var(--navy-deeper) 100%);color:#fff;transition:opacity .9s ease;overflow:auto;padding:max(18px,env(safe-area-inset-top)) 18px max(40px,env(safe-area-inset-bottom))}
 #gate.open{opacity:0;pointer-events:none}
 #gate .gvid,#gate .gvid2{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:#101c3c;opacity:1;transition:opacity .45s ease}
 #gate .gvid.out{opacity:0;pointer-events:none}
 #gate .gvid video,#gate .gvid2 video{width:100%;height:100%;object-fit:contain}
 #gate .gvid2{z-index:3;opacity:0;pointer-events:none;transition:opacity .55s ease}
-#gate.outro .gvid2{opacity:1;pointer-events:auto}
-#gate .genter{position:absolute;left:50%;bottom:max(48px,9vh);transform:translateX(-50%);width:58px;height:58px;border-radius:50%;border:1.5px solid var(--gold);background:rgba(16,28,60,.55);color:var(--gold-soft);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .8s ease,background .2s ease,border-color .2s ease;-webkit-tap-highlight-color:transparent}
-#gate .genter svg{width:24px;height:24px}
-#gate .genter.on{opacity:1}
-#gate .genter:hover,#gate .genter:focus-visible{background:var(--gold);color:var(--navy-deeper);outline:none}
+#gate.part2 .gvid2{opacity:1;pointer-events:auto}
 #gate .grow{display:flex;align-items:center;justify-content:center;gap:14px}
 #gate .ggo{flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:var(--gold-soft);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s ease,background .2s ease;-webkit-tap-highlight-color:transparent}
 #gate .ggo svg{width:19px;height:19px}
 #gate .ggo:hover,#gate .ggo:focus-visible{border-color:var(--gold);background:rgba(184,149,90,.12);outline:none}
-@media(max-height:640px){#gate .gform{margin-top:12px}#gate .ghint{margin-top:8px}#gate .glabel{margin-bottom:8px}}
-#gate .gmark{display:block;width:min(96px,22vw);color:var(--gold-soft);opacity:0;transform:translateY(14px)}
-#gate .gmark svg{display:block;width:100%;aspect-ratio:1529.2/2001}
-#gate.code .gmark{animation:gfade .8s cubic-bezier(.22,.9,.35,1) .05s forwards}
-#gate .gform{margin-top:34px;opacity:0;transform:translateY(10px)}
-#gate.code .gform{animation:gfade .8s ease .4s forwards}
+#gate .gform{margin-top:52px;opacity:1;transform:none}
 #gate .glabel{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);display:block;margin-bottom:12px}
 #gate input{background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,.28);color:#fff;font-family:var(--serif);font-size:1.7rem;letter-spacing:.55em;text-align:center;width:min(172px,44vw);padding:6px 0 10px .55em;transition:border-color .25s ease}
 #gate input:focus{outline:none;border-color:var(--gold)}
 #gate.err input{border-color:#e8938a;animation:gshake .4s ease}
 #gate .ghint{font-family:var(--sans);font-size:.78rem;color:rgba(255,255,255,.4);margin-top:18px}
-@keyframes gfade{to{opacity:1;transform:none}}
 @keyframes gshake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
-@media(prefers-reduced-motion:reduce){#gate.code .gmark,#gate.code .gform{animation:none;opacity:1;transform:none}#gate.err input{animation:none}}
+@media(prefers-reduced-motion:reduce){#gate.err input{animation:none}}
 body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
+
+/* gate teaser: logo, group photo, credentials ring — shown after the animation, public (no password needed to see this much); password unlocks the rest of the site */
+#gate .gteaser{position:relative;z-index:4;width:100%;max-width:900px;margin:0 auto;padding:44px 0 10px;opacity:0;pointer-events:none;transition:opacity .8s ease;display:flex;flex-direction:column;align-items:center;text-align:center}
+#gate.teaser .gteaser{opacity:1;pointer-events:auto}
+#gate .gteaser .gmark{display:block;width:min(84px,20vw);color:var(--gold-soft);margin:0 auto 18px}
+#gate .gteaser .gmark svg{display:block;width:100%;aspect-ratio:1529.2/2001}
+#gate .twordmark{font-family:var(--serif);color:#fff;font-weight:500;font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:6px}
+#gate .teaser-sub{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:44px}
+#gate .tband{width:min(720px,92vw);margin:0 auto}
+#gate .tband img{width:100%;height:auto;display:block;border-radius:var(--r);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+#gate .gteaser .team-wheel{margin-top:66px}
+.team-wheel.dark .hub .hmark{color:var(--gold-soft)}
+.team-wheel.dark .hub .hline{color:#fff}
+.team-wheel.dark .hub .hsub{color:var(--gold-soft)}
+.team-wheel.dark .member .avatar{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.22);color:#fff}
+.team-wheel.dark .member h3{color:#fff}
+.team-wheel.dark .member .creds{color:var(--gold-soft)}
+.team-wheel.dark .member .role{color:rgba(255,255,255,.62)}
+.team-wheel.dark .member .cert{color:rgba(255,255,255,.5)}
+.team-wheel.dark .member .pro{color:rgba(255,255,255,.5)}
+.team-wheel.dark .ring{border-color:rgba(255,255,255,.16)}
 /* ---- end PREVIEW GATE ---- */
 </style>
 </head>
@@ -438,19 +449,48 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
   <div class="gvid" aria-hidden="true">
     <video id="gvideo" muted playsinline preload="auto"><source src="waypoint-intro.mp4" type="video/mp4"><source src="waypoint-intro.webm" type="video/webm"></video>
   </div>
-  <div class="gvid2">
-    <video id="gvideo2" muted playsinline preload="none" aria-hidden="true"><source src="waypoint-defn.mp4" type="video/mp4"><source src="waypoint-defn.webm" type="video/webm"></video>
-    <button type="button" class="genter" id="genter" hidden aria-label="Enter the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+  <div class="gvid2" aria-hidden="true">
+    <video id="gvideo2" muted playsinline preload="auto"><source src="waypoint-defn.mp4" type="video/mp4"><source src="waypoint-defn.webm" type="video/webm"></video>
   </div>
-  <span class="gmark" aria-hidden="true"><svg viewBox="0 0 1529.2 2001"><use href="#wm"/></svg></span>
-  <form class="gform" autocomplete="off">
-    <label class="glabel" for="gcode">Preview access code</label>
-    <div class="grow">
-      <input id="gcode" type="password" inputmode="numeric" autocomplete="one-time-code" maxlength="8" aria-label="Preview access code">
-      <button type="submit" class="ggo" aria-label="Enter code"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+  <div class="gteaser">
+    <span class="gmark" aria-hidden="true"><svg viewBox="0 0 1529.2 2001"><use href="#wm"/></svg></span>
+    <h1 class="twordmark">Waypoint Cooperative</h1>
+    <div class="teaser-sub">Torrington, Connecticut</div>
+    <figure class="tband">
+      <img src="team-photo.jpg" alt="The five clinician-founders of Waypoint Cooperative standing together on the iron fire escape of a brick mill building in Torrington" width="1920" height="872" loading="lazy">
+    </figure>
+    <div class="team-wheel dark" aria-label="Our founders">
+      <span class="ring" aria-hidden="true"></span>
+      <div class="hub">
+        <span class="hmark" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#wm"/></svg></span>
+        <div class="hline">Equal members,<br>equal voice.</div>
+        <div class="hsub">One member · One vote</div>
+      </div>
+      <div class="spoke" style="transform:translate(0px,-330px) translateY(-50%)">
+        <div class="member"><div class="avatar">EO</div><h3>Erin O'Neil</h3><div class="creds">MSW · LCSW · LICSW</div><div class="role">Founder · Chief Executive Officer <span class="pro">(she/her)</span></div><div class="cert">EMDRIA Certified Therapist™<br>EMDRIA Approved Consultant™</div></div>
+      </div>
+      <div class="spoke" style="transform:translate(314px,-102px) translateY(-50%)">
+        <div class="member"><div class="avatar">AA</div><h3>Arthur Anderson</h3><div class="creds">MSN · MSW · APRN · PMHNP-BC · LCSW</div><div class="role">Founder · Chief Medical Officer <span class="pro">(he/him)</span></div></div>
+      </div>
+      <div class="spoke" style="transform:translate(194px,267px) translateY(-50%)">
+        <div class="member"><div class="avatar">AN</div><h3>Anthony Nave</h3><div class="creds">LICSW · LADC · ACS</div><div class="role">Founder · Chief Clinical Officer <span class="pro">(he/him)</span></div><div class="cert">EMDRIA Certified Therapist™<br>EMDRIA Approved Consultant™</div></div>
+      </div>
+      <div class="spoke" style="transform:translate(-194px,267px) translateY(-50%)">
+        <div class="member"><div class="avatar">TR</div><h3>Tiffany Rollo</h3><div class="creds">LPC · ATR</div><div class="role">Founder · Chief Program Development Officer <span class="pro">(she/her)</span></div></div>
+      </div>
+      <div class="spoke" style="transform:translate(-314px,-102px) translateY(-50%)">
+        <div class="member"><div class="avatar">SK</div><h3>Seon W. Kim</h3><div class="creds">PhD · LMFT</div><div class="role">Founder · Chief Research Officer <span class="pro">(he/him)</span></div><div class="cert">AAMFT Approved Supervisor</div></div>
+      </div>
     </div>
-    <div class="ghint">This site is in preview. Enter the code shared with you.</div>
-  </form>
+    <form class="gform" autocomplete="off">
+      <label class="glabel" for="gcode">Password</label>
+      <div class="grow">
+        <input id="gcode" type="password" inputmode="numeric" autocomplete="one-time-code" maxlength="8" aria-label="Password">
+        <button type="submit" class="ggo" aria-label="Enter password"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+      <div class="ghint">The rest of the site is still in preview. Enter the password shared with you to continue.</div>
+    </form>
+  </div>
 </div>
 <a class="skip" href="#main">Skip to content</a>
 
@@ -819,20 +859,44 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
     if(ok){g.remove();}
     else{
       g.hidden=false;document.body.classList.add('gated');
-      /* -- intro video: plays once, then cut to passcode page -- */
-      (function(){
-        var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var vwrap=g.querySelector('.gvid'),vid=g.querySelector('#gvideo');
-        var input=g.querySelector('#gcode');
-        function cut(){
-          if(g.classList.contains('code'))return;
-          g.classList.add('code');
-          if(vwrap){vwrap.classList.add('out');try{vid.pause()}catch(e){}
-            setTimeout(function(){if(vwrap.parentNode)vwrap.parentNode.removeChild(vwrap)},520);}
-          try{var v2=g.querySelector('#gvideo2');if(v2)v2.load();}catch(e){} /* preload part 2 while code is typed */
-          setTimeout(function(){try{if(window.matchMedia('(hover:hover)').matches)input.focus()}catch(e){}},1300);
-        }
-        if(reduce||!vid){cut();return;}
+      var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var vwrap=g.querySelector('.gvid'),vid=g.querySelector('#gvideo');
+      var owrap=g.querySelector('.gvid2'),v2=g.querySelector('#gvideo2');
+      var input=g.querySelector('#gcode');
+
+      /* -- teaser: logo, group photo, credentials ring — public, reached after the animation, ahead of the password -- */
+      function showTeaser(){
+        if(g.classList.contains('teaser'))return;
+        g.classList.add('teaser');
+        g.classList.remove('part2');
+        try{if(vid)vid.pause()}catch(e){}
+        try{if(v2)v2.pause()}catch(e){}
+        setTimeout(function(){
+          if(vwrap&&vwrap.parentNode)vwrap.parentNode.removeChild(vwrap);
+          if(owrap&&owrap.parentNode)owrap.parentNode.removeChild(owrap);
+        },650);
+      }
+
+      /* -- part 2: definition video, plays immediately after part 1, no stop in between -- */
+      function playPart2(){
+        if(reduce||!v2){showTeaser();return;}
+        g.classList.add('part2');
+        var fin2=false;var fin=function(){if(fin2)return;fin2=true;showTeaser();};
+        v2.addEventListener('ended',fin);
+        v2.addEventListener('error',fin);
+        setTimeout(function(){if(!fin2)fin();},12000); /* stall failsafe */
+        var p2=v2.play&&v2.play();
+        if(p2&&p2.catch)p2.catch(fin); /* autoplay blocked -> straight to teaser */
+      }
+
+      /* -- part 1: intro video; on end, chain straight into part 2 (no passcode stop) -- */
+      function cut(){
+        if(g.classList.contains('part2')||g.classList.contains('teaser'))return;
+        if(vwrap){vwrap.classList.add('out');try{vid.pause()}catch(e){}}
+        playPart2();
+      }
+      if(reduce||!vid){showTeaser();}
+      else{
         /* full watch: hold the settled final frame until 7s total, no skipping */
         var t0=null;
         vid.addEventListener('playing',function(){if(t0===null)t0=Date.now();},{once:true});
@@ -843,9 +907,14 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
         vid.addEventListener('error',cut);
         setTimeout(cut,10000); /* failsafe if video stalls */
         var p=vid.play&&vid.play();
-        if(p&&p.catch)p.catch(cut); /* autoplay blocked (e.g. Low Power Mode) -> straight to code */
-      })();
-      var form=g.querySelector('.gform'),input=g.querySelector('#gcode');
+        if(p&&p.catch)p.catch(cut); /* autoplay blocked (e.g. Low Power Mode) -> straight to part 2 */
+      }
+
+      /* -- password: unlocks the rest of the site. Everything past the teaser (mission, services,
+         cooperative model, fees, contact, etc.) stays behind this until the correct code is entered.
+         GO-LIVE NOTE: when the password is removed entirely, keep the animation -> teaser flow, drop
+         this form, and call unlock() directly once the teaser is shown. -- */
+      var form=g.querySelector('.gform');
       function unlock(){
         if(g.classList.contains('open'))return;
         g.classList.add('open');document.body.classList.remove('gated');
@@ -855,28 +924,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
         if(input.value.trim()==='1234'){
           try{sessionStorage.setItem('wpGate','1')}catch(e){}
           try{input.blur()}catch(e){}
-          /* -- part 2 video: definition scene between passcode and site -- */
-          var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-          var ov=g.querySelector('.gvid2'),v2=g.querySelector('#gvideo2');
-          if(reduce||!v2){unlock();return;}
-          g.classList.add('outro');
-          /* full watch: plays to the end, no skipping; arrow appears at the end to enter the site.
-             GO-LIVE NOTE: when the passcode is removed, chain intro -> defn videos and let them
-             play straight through into the site (call unlock() on 'ended' instead of showing the arrow). */
-          var fin2=false;var fin=function(){if(fin2)return;fin2=true;unlock();};
-          var arrow=g.querySelector('#genter');
-          v2.addEventListener('ended',function(){
-            if(arrow){arrow.hidden=false;requestAnimationFrame(function(){arrow.classList.add('on')});try{arrow.focus()}catch(e){}
-              arrow.addEventListener('click',fin);
-              if(ov)ov.addEventListener('click',fin); /* whole final frame is clickable too */
-            }else{fin();}
-          });
-          v2.addEventListener('error',fin);
-          setTimeout(function(){ /* stall failsafe: if video never ended AND arrow never shown, let them in */
-            if(!fin2&&(!arrow||arrow.hidden))fin();
-          },12000);
-          var p2=v2.play&&v2.play();
-          if(p2&&p2.catch)p2.catch(fin);
+          unlock();
         }else{
           g.classList.remove('err');void g.offsetWidth;g.classList.add('err');
           input.value='';input.focus();
