@@ -88,7 +88,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;bo
 header.solid{background:rgba(251,250,246,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
 .nav{height:74px;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:13px}
-.brand-mark{width:32px;height:38px;color:var(--gold-soft);flex:0 0 auto;transition:color .3s ease}
+.brand-mark{width:32px;height:38px;color:#fff;flex:0 0 auto;transition:color .3s ease}
 .brand-mark svg{width:100%;height:100%}
 .brand-txt{display:flex;flex-direction:column;line-height:1.05}
 .brand-txt .b1{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:#fff;letter-spacing:.01em;transition:color .3s ease;white-space:nowrap}
@@ -123,7 +123,7 @@ section[id]{scroll-margin-top:84px}
 .hero-splash{position:relative;z-index:2;min-height:100svh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:92px 24px 84px}
 .hero-halo{position:absolute;top:50%;left:50%;transform:translate(-50%,-56%);width:620px;height:620px;max-width:94vw;border-radius:50%;
   background:radial-gradient(circle,rgba(216,196,154,.17),transparent 62%);z-index:-1;pointer-events:none}
-.mark-xl{width:min(258px,58vw);color:var(--gold-soft);margin-bottom:28px;filter:drop-shadow(0 14px 46px rgba(0,0,0,.42))}
+.mark-xl{width:min(258px,58vw);color:#fff;margin-bottom:28px;filter:drop-shadow(0 14px 46px rgba(0,0,0,.42))}
 .mark-xl svg{width:100%;height:auto}
 .wordmark{font-family:var(--serif);color:#fff;font-weight:500;font-size:clamp(2.5rem,6.4vw,3.7rem);letter-spacing:.01em;line-height:1.03;margin:0}
 .hero-place{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-soft);margin-top:15px}
@@ -237,7 +237,7 @@ select.fi option{background:var(--navy-deep)}
 .closing h2{color:#fff;max-width:720px;margin:0 auto 18px}
 .closing p{color:rgba(255,255,255,.72);max-width:520px;margin:0 auto 34px;font-size:1.06rem}
 .closing .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.closing .cmark{width:64px;color:var(--gold-soft);opacity:.9;margin:0 auto 26px}
+.closing .cmark{width:64px;color:#fff;opacity:.9;margin:0 auto 26px}
 
 /* footer */
 footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 30px}
@@ -331,7 +331,7 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
   .tcard .qm{color:var(--gold)}
   .fee-amt{color:var(--gold-soft)}
   header.solid{background:rgba(13,20,44,.92);border-bottom-color:rgba(255,255,255,.08)}
-  header.solid .brand-mark{color:var(--gold-soft)}
+  header.solid .brand-mark{color:#fff}
   header.solid .hamb span{background:var(--ink)}
   header.solid .nav .btn-nav{border-color:#3b4f97}
   .btn-ghost:hover{border-color:var(--gold-soft);color:var(--gold-soft)}
@@ -373,7 +373,7 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
 .team-wheel .hub .hsub{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-ink);margin-top:10px}
 .team-wheel .spoke{position:absolute;left:50%;top:50%;width:196px;margin-left:-98px;text-align:center}
 .team-wheel .ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:66%;height:66%;border:1px dashed var(--line);border-radius:50%;pointer-events:none}
-.team-wheel .hub .hmark{color:var(--gold-soft)}
+.team-wheel .hub .hmark{color:#fff}
 @media(max-width:900px){
   .team-wheel{width:auto;aspect-ratio:auto;display:grid;grid-template-columns:1fr 1fr;gap:34px 20px}
   .team-wheel .ring{display:none}
@@ -422,7 +422,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
 /* gate teaser: logo, mission, group photo, credentials ring, contact info — public, reached after the animation; password below unlocks the rest of the site. Kept deliberately simple: one continuation of the video's own white-on-navy palette, no extra sections. */
 #gate .gteaser{position:relative;z-index:4;width:100%;max-width:640px;margin:0 auto;padding:48px 0 36px;opacity:0;pointer-events:none;transition:opacity .8s ease;display:flex;flex-direction:column;align-items:center;text-align:center}
 #gate.teaser .gteaser{opacity:1;pointer-events:auto}
-#gate .gteaser .gmark{display:block;width:min(76px,18vw);color:var(--gold-soft);margin:0 auto 16px}
+#gate .gteaser .gmark{display:block;width:min(76px,18vw);color:#fff;margin:0 auto 16px}
 #gate .gteaser .gmark svg{display:block;width:100%;aspect-ratio:1529.2/2001}
 #gate .twordmark{font-family:var(--serif);color:#fff;font-weight:500;font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:6px}
 #gate .teaser-sub{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft)}
@@ -431,7 +431,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
 #gate .tband{width:min(600px,88vw);margin:0 auto}
 #gate .tband img{width:100%;height:auto;display:block;border-radius:var(--r);box-shadow:0 20px 60px rgba(0,0,0,.4)}
 #gate .gteaser .team-wheel{width:min(700px,92vw);margin:52px auto 0}
-.team-wheel.dark .hub .hmark{color:var(--gold-soft)}
+.team-wheel.dark .hub .hmark{color:#fff}
 .team-wheel.dark .hub .hline{color:#fff}
 .team-wheel.dark .hub .hsub{color:var(--gold-soft)}
 .team-wheel.dark .member .avatar{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.22);color:#fff}
@@ -471,7 +471,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
       <span class="ring" aria-hidden="true"></span>
       <div class="hub">
         <span class="hmark" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#wm"/></svg></span>
-        <div class="hline">A provider<br>for providers.</div>
+        <div class="hline">Growing<br>together.</div>
         <div class="hsub">Founding Clinicians</div>
       </div>
       <div class="spoke" style="transform:translate(0px,-330px) translateY(-50%)">
@@ -743,7 +743,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
       <span class="ring" aria-hidden="true"></span>
       <div class="hub">
         <span class="hmark" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#wm"/></svg></span>
-        <div class="hline">A provider<br>for providers.</div>
+        <div class="hline">Growing<br>together.</div>
         <div class="hsub">Founding Clinicians</div>
       </div>
             <div class="spoke" style="transform:translate(0px,-330px) translateY(-50%)">
