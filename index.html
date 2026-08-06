@@ -396,37 +396,38 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
 
 
 /* ---- PREVIEW GATE: remove this whole block at launch ---- */
-#gate{position:fixed;inset:0;z-index:400;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center;background:radial-gradient(120% 90% at 50% 20%,#22366f 0%,var(--navy-deep) 46%,var(--navy-deeper) 100%);color:#fff;transition:opacity .9s ease;overflow:auto;padding:max(18px,env(safe-area-inset-top)) 18px max(40px,env(safe-area-inset-bottom))}
+/* navy matched to the animation's own background (sampled ~#101f3c) and to the site's --navy-deep/--navy-deeper tokens, so the teaser reads as one continuous scene with the video, not a separate screen */
+#gate{position:fixed;inset:0;z-index:400;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center;background:radial-gradient(130% 85% at 50% 8%,#182a58 0%,var(--navy-deep) 40%,var(--navy-deeper) 100%);color:#fff;transition:opacity .9s ease;overflow:auto;padding:max(18px,env(safe-area-inset-top)) 18px max(40px,env(safe-area-inset-bottom))}
 #gate.open{opacity:0;pointer-events:none}
-#gate .gvid,#gate .gvid2{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:#101c3c;opacity:1;transition:opacity .45s ease}
+#gate .gvid{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:var(--navy-deeper);opacity:1;transition:opacity .5s ease}
 #gate .gvid.out{opacity:0;pointer-events:none}
-#gate .gvid video,#gate .gvid2 video{width:100%;height:100%;object-fit:contain}
-#gate .gvid2{z-index:3;opacity:0;pointer-events:none;transition:opacity .55s ease}
-#gate.part2 .gvid2{opacity:1;pointer-events:auto}
+#gate .gvid video{width:100%;height:100%;object-fit:contain}
 #gate .grow{display:flex;align-items:center;justify-content:center;gap:14px}
 #gate .ggo{flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:var(--gold-soft);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s ease,background .2s ease;-webkit-tap-highlight-color:transparent}
 #gate .ggo svg{width:19px;height:19px}
 #gate .ggo:hover,#gate .ggo:focus-visible{border-color:var(--gold);background:rgba(184,149,90,.12);outline:none}
-#gate .gform{margin-top:52px;opacity:1;transform:none}
+#gate .gform{margin-top:8px;opacity:1;transform:none}
 #gate .glabel{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);display:block;margin-bottom:12px}
 #gate input{background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,.28);color:#fff;font-family:var(--serif);font-size:1.7rem;letter-spacing:.55em;text-align:center;width:min(172px,44vw);padding:6px 0 10px .55em;transition:border-color .25s ease}
 #gate input:focus{outline:none;border-color:var(--gold)}
 #gate.err input{border-color:#e8938a;animation:gshake .4s ease}
-#gate .ghint{font-family:var(--sans);font-size:.78rem;color:rgba(255,255,255,.4);margin-top:18px}
+#gate .ghint{font-family:var(--sans);font-size:.78rem;color:rgba(255,255,255,.4);margin-top:18px;max-width:320px}
 @keyframes gshake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
 @media(prefers-reduced-motion:reduce){#gate.err input{animation:none}}
 body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
 
-/* gate teaser: logo, group photo, credentials ring — shown after the animation, public (no password needed to see this much); password unlocks the rest of the site */
-#gate .gteaser{position:relative;z-index:4;width:100%;max-width:900px;margin:0 auto;padding:44px 0 10px;opacity:0;pointer-events:none;transition:opacity .8s ease;display:flex;flex-direction:column;align-items:center;text-align:center}
+/* gate teaser: logo, mission, group photo, credentials ring, contact info — public, reached after the animation; password below unlocks the rest of the site. Kept deliberately simple: one continuation of the video's own white-on-navy palette, no extra sections. */
+#gate .gteaser{position:relative;z-index:4;width:100%;max-width:640px;margin:0 auto;padding:48px 0 36px;opacity:0;pointer-events:none;transition:opacity .8s ease;display:flex;flex-direction:column;align-items:center;text-align:center}
 #gate.teaser .gteaser{opacity:1;pointer-events:auto}
-#gate .gteaser .gmark{display:block;width:min(84px,20vw);color:var(--gold-soft);margin:0 auto 18px}
+#gate .gteaser .gmark{display:block;width:min(76px,18vw);color:var(--gold-soft);margin:0 auto 16px}
 #gate .gteaser .gmark svg{display:block;width:100%;aspect-ratio:1529.2/2001}
 #gate .twordmark{font-family:var(--serif);color:#fff;font-weight:500;font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:6px}
-#gate .teaser-sub{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:44px}
-#gate .tband{width:min(720px,92vw);margin:0 auto}
+#gate .teaser-sub{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft)}
+#gate .tmission{font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,2vw,1.24rem);line-height:1.55;color:rgba(255,255,255,.82);max-width:520px;margin:26px auto 0}
+#gate .trule{width:40px;height:1px;background:var(--gold);opacity:.7;margin:38px auto}
+#gate .tband{width:min(600px,88vw);margin:0 auto}
 #gate .tband img{width:100%;height:auto;display:block;border-radius:var(--r);box-shadow:0 20px 60px rgba(0,0,0,.4)}
-#gate .gteaser .team-wheel{margin-top:66px}
+#gate .gteaser .team-wheel{width:min(640px,92vw);margin:52px auto 0}
 .team-wheel.dark .hub .hmark{color:var(--gold-soft)}
 .team-wheel.dark .hub .hline{color:#fff}
 .team-wheel.dark .hub .hsub{color:var(--gold-soft)}
@@ -437,6 +438,11 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
 .team-wheel.dark .member .cert{color:rgba(255,255,255,.5)}
 .team-wheel.dark .member .pro{color:rgba(255,255,255,.5)}
 .team-wheel.dark .ring{border-color:rgba(255,255,255,.16)}
+#gate .tcontact{display:flex;flex-direction:column;gap:10px;font-family:var(--sans);font-size:.86rem;color:rgba(255,255,255,.75);line-height:1.6}
+#gate .tcontact a{color:rgba(255,255,255,.75)}
+#gate .tcontact .tc-label{display:block;font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:3px}
+#gate .tfoot{font-family:var(--sans);font-size:.72rem;color:rgba(255,255,255,.34);margin-top:40px}
+@media(max-width:700px){#gate .gteaser .team-wheel{margin-top:44px}}
 /* ---- end PREVIEW GATE ---- */
 </style>
 </head>
@@ -447,15 +453,14 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
 <!-- PREVIEW GATE: remove this block + its CSS + its JS at launch -->
 <div id="gate" hidden>
   <div class="gvid" aria-hidden="true">
-    <video id="gvideo" muted playsinline preload="auto"><source src="waypoint-intro.mp4" type="video/mp4"><source src="waypoint-intro.webm" type="video/webm"></video>
-  </div>
-  <div class="gvid2" aria-hidden="true">
-    <video id="gvideo2" muted playsinline preload="auto"><source src="waypoint-defn.mp4" type="video/mp4"><source src="waypoint-defn.webm" type="video/webm"></video>
+    <video id="gvideo" muted playsinline preload="auto"><source src="waypoint-gate.mp4" type="video/mp4"><source src="waypoint-gate.webm" type="video/webm"></video>
   </div>
   <div class="gteaser">
     <span class="gmark" aria-hidden="true"><svg viewBox="0 0 1529.2 2001"><use href="#wm"/></svg></span>
     <h1 class="twordmark">Waypoint Cooperative</h1>
     <div class="teaser-sub">Torrington, Connecticut</div>
+    <p class="tmission">At Waypoint Cooperative, we are committed to being a provider for providers — a sanctuary where therapists, social workers, counselors, and behavioral health professionals receive support, build sustainable practices, and rediscover purpose in their work.</p>
+    <span class="trule" aria-hidden="true"></span>
     <figure class="tband">
       <img src="team-photo.jpg" alt="The five clinician-founders of Waypoint Cooperative standing together on the iron fire escape of a brick mill building in Torrington" width="1920" height="872" loading="lazy">
     </figure>
@@ -482,6 +487,12 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
         <div class="member"><div class="avatar">SK</div><h3>Seon W. Kim</h3><div class="creds">PhD · LMFT</div><div class="role">Founder · Chief Research Officer <span class="pro">(he/him)</span></div><div class="cert">AAMFT Approved Supervisor</div></div>
       </div>
     </div>
+    <span class="trule" aria-hidden="true"></span>
+    <div class="tcontact">
+      <div class="tc-row"><span class="tc-label">Office</span>40 Main Street, Suite 16, Box 4<br>Torrington, CT 06790</div>
+      <div class="tc-row"><span class="tc-label">Phone</span><a href="tel:8609623945">(860) 962-3945</a></div>
+      <div class="tc-row"><span class="tc-label">Fax</span>(860) 996-8357</div>
+    </div>
     <form class="gform" autocomplete="off">
       <label class="glabel" for="gcode">Password</label>
       <div class="grow">
@@ -490,6 +501,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
       </div>
       <div class="ghint">The rest of the site is still in preview. Enter the password shared with you to continue.</div>
     </form>
+    <div class="tfoot">&copy; 2024–2026 Waypoint Cooperative LLC. All rights reserved.</div>
   </div>
 </div>
 <a class="skip" href="#main">Skip to content</a>
@@ -861,53 +873,33 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
       g.hidden=false;document.body.classList.add('gated');
       var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
       var vwrap=g.querySelector('.gvid'),vid=g.querySelector('#gvideo');
-      var owrap=g.querySelector('.gvid2'),v2=g.querySelector('#gvideo2');
       var input=g.querySelector('#gcode');
 
-      /* -- teaser: logo, group photo, credentials ring — public, reached after the animation, ahead of the password -- */
+      /* -- teaser: logo, mission, group photo, credentials ring, contact info — public, reached after
+         the animation plays through as one continuous clip, ahead of the password -- */
       function showTeaser(){
         if(g.classList.contains('teaser'))return;
         g.classList.add('teaser');
-        g.classList.remove('part2');
-        try{if(vid)vid.pause()}catch(e){}
-        try{if(v2)v2.pause()}catch(e){}
+        if(vwrap){vwrap.classList.add('out');try{vid.pause()}catch(e){}}
         setTimeout(function(){
           if(vwrap&&vwrap.parentNode)vwrap.parentNode.removeChild(vwrap);
-          if(owrap&&owrap.parentNode)owrap.parentNode.removeChild(owrap);
         },650);
       }
 
-      /* -- part 2: definition video, plays immediately after part 1, no stop in between -- */
-      function playPart2(){
-        if(reduce||!v2){showTeaser();return;}
-        g.classList.add('part2');
-        var fin2=false;var fin=function(){if(fin2)return;fin2=true;showTeaser();};
-        v2.addEventListener('ended',fin);
-        v2.addEventListener('error',fin);
-        setTimeout(function(){if(!fin2)fin();},12000); /* stall failsafe */
-        var p2=v2.play&&v2.play();
-        if(p2&&p2.catch)p2.catch(fin); /* autoplay blocked -> straight to teaser */
-      }
-
-      /* -- part 1: intro video; on end, chain straight into part 2 (no passcode stop) -- */
-      function cut(){
-        if(g.classList.contains('part2')||g.classList.contains('teaser'))return;
-        if(vwrap){vwrap.classList.add('out');try{vid.pause()}catch(e){}}
-        playPart2();
-      }
+      /* -- one continuous video (intro + definition concatenated into a single file, no swap/crossfade
+         seam); holds the settled final frame until 14.8s total (the file's own runtime), no skipping -- */
       if(reduce||!vid){showTeaser();}
       else{
-        /* full watch: hold the settled final frame until 7s total, no skipping */
         var t0=null;
         vid.addEventListener('playing',function(){if(t0===null)t0=Date.now();},{once:true});
         vid.addEventListener('ended',function(){
-          var elapsed=t0?Date.now()-t0:7000;
-          setTimeout(cut,Math.max(7000-elapsed,0));
+          var elapsed=t0?Date.now()-t0:14800;
+          setTimeout(showTeaser,Math.max(14800-elapsed,0));
         });
-        vid.addEventListener('error',cut);
-        setTimeout(cut,10000); /* failsafe if video stalls */
+        vid.addEventListener('error',showTeaser);
+        setTimeout(showTeaser,18000); /* failsafe if video stalls */
         var p=vid.play&&vid.play();
-        if(p&&p.catch)p.catch(cut); /* autoplay blocked (e.g. Low Power Mode) -> straight to part 2 */
+        if(p&&p.catch)p.catch(showTeaser); /* autoplay blocked (e.g. Low Power Mode) -> straight to teaser */
       }
 
       /* -- password: unlocks the rest of the site. Everything past the teaser (mission, services,
