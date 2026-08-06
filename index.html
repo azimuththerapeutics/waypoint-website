@@ -100,7 +100,7 @@ header.solid{background:rgba(251,250,246,.92);backdrop-filter:blur(10px);border-
 .nav-phone{font-family:var(--sans);font-size:.9rem;font-weight:600;color:#fff;transition:color .3s ease;white-space:nowrap}
 .nav .btn-nav{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
 .nav .btn-nav:hover{background:rgba(255,255,255,.1);border-color:#fff}
-.hamb{display:none;flex-direction:column;justify-content:center;gap:5px;padding:8px;width:44px;min-height:44px}
+.hamb{display:none;flex-direction:column;justify-content:center;gap:5px;padding:8px;width:44px;min-height:44px;background:transparent;border:none;cursor:pointer;appearance:none}
 .hamb span{height:1.5px;background:#fff;border-radius:2px;transition:.2s}
 /* solid (scrolled) nav — dark text on cream */
 header.solid .brand-mark{color:var(--navy)}
@@ -203,7 +203,10 @@ section[id]{scroll-margin-top:84px}
 /* contact */
 .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
 .contact-phone{font-family:var(--serif);font-size:2.6rem;color:#fff;font-weight:500;display:inline-block;margin:8px 0 6px}
+.contact-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:var(--r);padding:26px 28px 6px;margin-top:28px}
 .crow{display:flex;gap:14px;align-items:flex-start;margin-top:22px}
+.contact-card .crow:first-child{margin-top:0}
+.contact-card .crow:not(:last-child){padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.08)}
 .crow .ci{width:38px;height:38px;flex:0 0 auto;border:1px solid rgba(255,255,255,.2);border-radius:var(--r);display:flex;align-items:center;justify-content:center;color:var(--gold-soft)}
 .crow .ci svg{width:17px;height:17px}
 .crow .cl{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:3px}
@@ -310,9 +313,8 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
 .svc-head{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink);text-align:center;margin:54px 0 22px}
 
 
-/* ── DARK MODE (system preference) ─────────────────────── */
-@media (prefers-color-scheme: dark){
-  :root{
+/* ── NAVY THEME (matches the intro animation — white text on navy, all through the site) ── */
+:root{
     --gold-ink:#d8c49a;
     --paper:#0f1730;          /* page bg */
     --cream:#141f42;          /* alt section bg */
@@ -334,7 +336,6 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
   header.solid .nav .btn-nav{border-color:#3b4f97}
   .btn-ghost:hover{border-color:var(--gold-soft);color:var(--gold-soft)}
   .nav-links.open{box-shadow:0 14px 32px rgba(0,0,0,.5)}
-}
 
 
 /* nav crowding fixes */
@@ -358,7 +359,8 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
 .path h3{margin-bottom:10px}
 .path p{color:var(--muted);font-size:.95rem;margin-bottom:20px}
 .path .go{font-family:var(--sans);font-size:.82rem;font-weight:600;color:var(--navy);display:inline-flex;gap:7px;align-items:center}
-@media (prefers-color-scheme: dark){.path{border-top-color:#4a63b5}.path .go{color:var(--gold-soft)}}
+.path{border-top-color:#4a63b5}
+.path .go{color:var(--gold-soft)}
 @media(max-width:760px){.paths{grid-template-columns:1fr}}
 
 
@@ -371,7 +373,7 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
 .team-wheel .hub .hsub{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-ink);margin-top:10px}
 .team-wheel .spoke{position:absolute;left:50%;top:50%;width:196px;margin-left:-98px;text-align:center}
 .team-wheel .ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:66%;height:66%;border:1px dashed var(--line);border-radius:50%;pointer-events:none}
-@media (prefers-color-scheme: dark){.team-wheel .hub .hmark{color:var(--gold-soft)}}
+.team-wheel .hub .hmark{color:var(--gold-soft)}
 @media(max-width:900px){
   .team-wheel{width:auto;aspect-ratio:auto;display:grid;grid-template-columns:1fr 1fr;gap:34px 20px}
   .team-wheel .ring{display:none}
@@ -428,7 +430,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
 #gate .trule{width:40px;height:1px;background:var(--gold);opacity:.7;margin:38px auto}
 #gate .tband{width:min(600px,88vw);margin:0 auto}
 #gate .tband img{width:100%;height:auto;display:block;border-radius:var(--r);box-shadow:0 20px 60px rgba(0,0,0,.4)}
-#gate .gteaser .team-wheel{width:min(640px,92vw);margin:52px auto 0}
+#gate .gteaser .team-wheel{width:min(700px,92vw);margin:52px auto 0}
 .team-wheel.dark .hub .hmark{color:var(--gold-soft)}
 .team-wheel.dark .hub .hline{color:#fff}
 .team-wheel.dark .hub .hsub{color:var(--gold-soft)}
@@ -797,6 +799,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
       <h2>New clients are always welcome</h2>
       <p style="margin-top:16px;color:rgba(255,255,255,.72)">Call us, or request an appointment through our secure client portal. We'll match you with the right clinician and verify your insurance before your first visit.</p>
       <a href="tel:8609623945" class="contact-phone">860 · 962 · 3945</a>
+      <div class="contact-card">
       <div class="crow">
         <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
         <div><div class="cl">Office</div><div class="cv">40 Main Street, Suite 16, Box 4<br>Torrington, CT 06790</div></div>
@@ -808,6 +811,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
       <div class="crow">
         <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M1 19h22"/></svg></span>
         <div><div class="cl">Telehealth</div><div class="cv">Secure video sessions available<br>across Connecticut</div></div>
+      </div>
       </div>
     </div>
     <div class="fade">
