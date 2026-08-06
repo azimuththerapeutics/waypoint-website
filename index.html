@@ -397,7 +397,8 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
 
 /* ---- PREVIEW GATE: remove this whole block at launch ---- */
 /* navy matched to the animation's own background (sampled ~#101f3c) and to the site's --navy-deep/--navy-deeper tokens, so the teaser reads as one continuous scene with the video, not a separate screen */
-#gate{position:fixed;inset:0;z-index:400;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center;background:radial-gradient(130% 85% at 50% 8%,#182a58 0%,var(--navy-deep) 40%,var(--navy-deeper) 100%);color:#fff;transition:opacity .9s ease;overflow:auto;padding:max(18px,env(safe-area-inset-top)) 18px max(40px,env(safe-area-inset-bottom))}
+#gate{position:fixed;inset:0;z-index:400;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:0;text-align:center;background:radial-gradient(130% 85% at 50% 8%,#182a58 0%,var(--navy-deep) 40%,var(--navy-deeper) 100%);color:#fff;transition:opacity .9s ease;overflow:auto;padding:max(18px,env(safe-area-inset-top)) 18px max(40px,env(safe-area-inset-bottom))}
+#gate:not(.teaser){justify-content:center}
 #gate.open{opacity:0;pointer-events:none}
 #gate .gvid{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:var(--navy-deeper);opacity:1;transition:opacity .5s ease}
 #gate .gvid.out{opacity:0;pointer-events:none}
@@ -880,6 +881,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
       function showTeaser(){
         if(g.classList.contains('teaser'))return;
         g.classList.add('teaser');
+        g.scrollTop=0; /* land on the top of the teaser (logo/mission), not mid-scroll */
         if(vwrap){vwrap.classList.add('out');try{vid.pause()}catch(e){}}
         setTimeout(function(){
           if(vwrap&&vwrap.parentNode)vwrap.parentNode.removeChild(vwrap);
