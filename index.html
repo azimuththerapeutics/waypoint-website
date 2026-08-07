@@ -181,8 +181,8 @@ section[id]{scroll-margin-top:84px}
 /* team */
 .team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px}
 .member{text-align:center}
-.avatar{width:96px;height:96px;border-radius:50%;margin:0 auto 18px;background:var(--cream);border:1px solid var(--line);
-  display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.7rem;font-weight:500;color:var(--navy)}
+.avatar{width:110px;height:110px;border-radius:50%;margin:0 auto 18px;background:var(--cream);border:1.5px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.9rem;font-weight:500;color:var(--navy)}
 .member h3{font-family:var(--serif);font-size:1.24rem;color:var(--ink);margin-bottom:4px;font-weight:600}
 .member .creds{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:5px}
 .member .role{font-family:var(--sans);font-size:.82rem;color:var(--muted)}
@@ -401,7 +401,7 @@ footer{background:var(--navy-deeper);color:#fff;padding:64px 0 30px}
   .team-wheel .hub .hline{font-size:.82rem;line-height:1.25}
   .team-wheel .hub .hsub{display:none}
   .team-wheel .spoke{width:84px;transform-origin:center center}
-  .team-wheel .avatar{width:50px;height:50px;font-size:.92rem;margin-bottom:8px;transition:transform .2s ease,box-shadow .2s ease}
+  .team-wheel .avatar{width:58px;height:58px;font-size:1rem;margin-bottom:8px;transition:transform .2s ease,box-shadow .2s ease}
   .team-wheel .spoke:active .avatar{transform:scale(.92)}
   .team-wheel .member h3{font-size:.72rem;line-height:1.25;margin-bottom:0;text-wrap:balance}
   .team-wheel .member .creds,.team-wheel .member .role,.team-wheel .member .cert,.team-wheel .member .pro{display:none}
@@ -409,7 +409,7 @@ footer{background:var(--navy-deeper);color:#fff;padding:64px 0 30px}
 }
 @media(max-width:480px){
   .team-wheel{--wheel-w:min(760px,96cqw)}
-  .team-wheel .avatar{width:44px;height:44px;font-size:.82rem}
+  .team-wheel .avatar{width:50px;height:50px;font-size:.88rem}
   .team-wheel .member h3{font-size:.68rem}
 }
 
@@ -484,7 +484,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
    .hero-splash styling (same mark/wordmark/tagline treatment) so it reads as a continuation of the
    same design, not a separate screen bolted on front. Scroll cue at the foot points at the team wheel. */
 #gate .tsplash{display:flex;flex-direction:column;align-items:center;width:100%}
-#gate .gteaser .gmark{display:block;width:min(76px,18vw);color:#fff;margin:0 auto 16px}
+#gate .gteaser .gmark{display:block;width:min(128px,30vw);color:#fff;margin:0 auto 18px}
 #gate .gteaser .gmark svg{display:block;width:100%;aspect-ratio:1529.2/2001}
 #gate .twordmark{font-family:var(--serif);color:#fff;font-weight:500;font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:6px}
 #gate .teaser-sub{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#fff}
@@ -503,15 +503,23 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
 .team-wheel.dark .hub .hmark{color:#fff}
 .team-wheel.dark .hub .hline{color:#fff}
 .team-wheel.dark .hub .hsub{color:#fff}
-.team-wheel.dark .member .avatar{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.22);color:#fff}
+.team-wheel.dark .member .avatar{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.42);color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.25)}
 .team-wheel.dark .member h3{color:#fff}
 .team-wheel.dark .member .creds{color:#fff}
 .team-wheel.dark .member .role{color:#fff}
 .team-wheel.dark .member .cert{color:#fff}
 .team-wheel.dark .member .pro{color:#fff}
 .team-wheel.dark .ring{border-color:rgba(255,255,255,.16)}
+#gate .tcontact{display:flex;flex-wrap:wrap;justify-content:center;gap:26px 40px;max-width:520px;margin:0 auto}
+#gate .tcrow{display:flex;gap:12px;align-items:flex-start;text-align:left}
+#gate .tci{width:34px;height:34px;flex:0 0 auto;border:1px solid rgba(255,255,255,.22);border-radius:var(--r);display:flex;align-items:center;justify-content:center;color:var(--gold-soft)}
+#gate .tci svg{width:15px;height:15px}
+#gate .tcl{font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff;opacity:.75;margin-bottom:3px}
+#gate .tcv{font-family:var(--sans);font-size:.86rem;color:#fff;line-height:1.5}
+#gate .tcv a{color:#fff}
 #gate .tfoot{font-family:var(--sans);font-size:.72rem;color:#fff;margin-top:40px}
 @media(max-width:700px){#gate .gteaser .team-wheel{margin-top:44px}}
+@media(max-width:480px){#gate .tcontact{gap:20px 28px}}
 /* ---- end PREVIEW GATE ---- */
 </style>
 </head>
@@ -529,10 +537,10 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
       <span class="gmark" aria-hidden="true"><svg viewBox="0 0 1529.2 2001"><use href="#wm"/></svg></span>
       <h1 class="twordmark">Waypoint Cooperative</h1>
       <div class="teaser-sub">Torrington, Connecticut</div>
-      <p class="ttag">Growing together.</p>
       <figure class="tband">
         <img src="team-photo.jpg" alt="The five clinician-founders of Waypoint Cooperative standing together on the iron fire escape of a brick mill building in Torrington" width="1920" height="872" loading="lazy">
       </figure>
+      <p class="ttag">Growing together.</p>
       <button type="button" class="tscroll" id="tScrollBtn" aria-label="Scroll to meet the founders"><span>Meet the founders</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
     </div>
     <span class="trule" aria-hidden="true"></span>
@@ -557,6 +565,17 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
       </div>
       <div class="spoke" style="transform:translate(calc(var(--wheel-w) * -.41316),calc(var(--wheel-w) * -.13421)) translate(-50%,-50%)">
         <div class="member"><div class="avatar">SK</div><h3>Seon W. Kim</h3><div class="creds">PhD · LMFT</div><div class="role">Founder · Chief Research Officer <span class="pro">(he/him)</span></div><div class="cert">AAMFT Approved Supervisor</div><div class="bio">Seon holds a Ph.D. in Marriage and Family Therapy from Antioch University, where her dissertation examined therapeutic alliance in clinical videoconferencing. She's an Assistant Professor at Southern Connecticut State University, previously served as Clinical Director at Mountainside Treatment Center, and founded Consilient Therapy LLC in Torrington. She publishes regularly in peer-reviewed journals and Psychology Today on addiction, family systems, and telehealth.</div></div>
+      </div>
+    </div>
+    <span class="trule" aria-hidden="true"></span>
+    <div class="tcontact">
+      <div class="tcrow">
+        <span class="tci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <div><div class="tcl">Office</div><div class="tcv">40 Main Street, Suite 16, Box 4<br>Torrington, CT 06790</div></div>
+      </div>
+      <div class="tcrow">
+        <span class="tci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.13 6.13l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <div><div class="tcl">Phone / Fax</div><div class="tcv"><a href="tel:8609623945">(860) 962-3945</a><br>Fax (860) 996-8357</div></div>
       </div>
     </div>
     <span class="trule" aria-hidden="true"></span>
