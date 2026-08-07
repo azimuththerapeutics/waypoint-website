@@ -49,11 +49,11 @@ h3{font-size:1.5rem}
 p{font-size:1.02rem}
 .serif-em{font-style:italic;color:var(--navy)}
 
-.wrap{max-width:var(--mw);margin:0 auto;padding:0 var(--pad)}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 var(--pad);container-type:inline-size}
 .sec{padding:104px 0}
 .sec--tight{padding:76px 0}
 .bg-cream{background:var(--cream)}
-.bg-navy{background:var(--navy-deep);color:rgba(255,255,255,.82)}
+.bg-navy{background:var(--navy-deep);color:#fff}
 .bg-navy h2,.bg-navy h3,.bg-navy h4{color:#fff}
 
 /* eyebrow with a small star */
@@ -61,7 +61,7 @@ p{font-size:1.02rem}
 .eyebrow::before{content:"";width:9px;height:9px;flex:0 0 auto;
   background:var(--gold);
   clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%);}
-.bg-navy .eyebrow{color:var(--gold-soft)}
+.bg-navy .eyebrow{color:#fff}
 .bg-navy .eyebrow::before{background:var(--gold-soft)}
 
 .lead{font-size:1.12rem;line-height:1.8;color:var(--muted)}
@@ -92,9 +92,9 @@ header.solid{background:rgba(251,250,246,.92);backdrop-filter:blur(10px);border-
 .brand-mark svg{width:100%;height:100%}
 .brand-txt{display:flex;flex-direction:column;line-height:1.05}
 .brand-txt .b1{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:#fff;letter-spacing:.01em;transition:color .3s ease;white-space:nowrap}
-.brand-txt .b2{font-family:var(--sans);font-size:.6rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.6);transition:color .3s ease;white-space:nowrap}
+.brand-txt .b2{font-family:var(--sans);font-size:.6rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:#fff;transition:color .3s ease;white-space:nowrap}
 .nav-links{display:flex;align-items:center;gap:38px}
-.nav-links a.navlink{font-family:var(--sans);font-size:.9rem;color:rgba(255,255,255,.82);letter-spacing:.01em;transition:color .2s;white-space:nowrap}
+.nav-links a.navlink{font-family:var(--sans);font-size:.9rem;color:#fff;letter-spacing:.01em;transition:color .2s;white-space:nowrap}
 .nav-links a.navlink:hover{color:#fff}
 .nav-cta{display:flex;align-items:center;gap:22px;flex:0 0 auto}
 .nav-phone{font-family:var(--sans);font-size:.9rem;font-weight:600;color:#fff;transition:color .3s ease;white-space:nowrap}
@@ -126,28 +126,28 @@ section[id]{scroll-margin-top:84px}
 .mark-xl{width:min(258px,58vw);color:#fff;margin-bottom:28px;filter:drop-shadow(0 14px 46px rgba(0,0,0,.42))}
 .mark-xl svg{width:100%;height:auto}
 .wordmark{font-family:var(--serif);color:#fff;font-weight:500;font-size:clamp(2.5rem,6.4vw,3.7rem);letter-spacing:.01em;line-height:1.03;margin:0}
-.hero-place{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-soft);margin-top:15px}
-.hero-note{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:26px}
-.tagline{font-family:var(--serif);font-style:italic;font-size:clamp(1.18rem,2.5vw,1.58rem);line-height:1.42;color:rgba(255,255,255,.8);max-width:600px;margin:24px auto 0}
-.hero-badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.82);
+.hero-place{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:#fff;margin-top:15px}
+.hero-note{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#fff;margin-top:26px}
+.tagline{font-family:var(--serif);font-style:italic;font-size:clamp(1.18rem,2.5vw,1.58rem);line-height:1.42;color:#fff;max-width:600px;margin:24px auto 0}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#fff;
   border:1px solid rgba(255,255,255,.22);border-radius:100px;padding:7px 16px;margin-bottom:26px}
 .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold-soft)}
 .hero h1{color:#fff;font-weight:500;margin:0 auto 22px;max-width:920px}
-.hero h1 em{font-style:italic;color:var(--gold-soft)}
-.hero-sub{font-size:1.14rem;line-height:1.8;color:rgba(255,255,255,.72);max-width:560px;margin:0 auto 38px}
+.hero h1 em{font-style:italic;color:#fff}
+.hero-sub{font-size:1.14rem;line-height:1.8;color:#fff;max-width:560px;margin:0 auto 38px}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
 .hero-star{position:absolute;background:#fff;opacity:.5;z-index:1;
   clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%)}
 .scrolldown{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px;
-  font-family:var(--sans);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.42)}
+  font-family:var(--sans);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:#fff}
 .scrolldown svg{width:16px;height:16px;animation:bob 2s ease infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 
 /* in-network strip */
 .innet{border-top:1px solid rgba(255,255,255,.1);position:relative;z-index:2}
 .innet-inner{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;padding:26px 0}
-.innet-label{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5)}
-.innet-item{font-family:var(--sans);font-size:.86rem;color:rgba(255,255,255,.82);position:relative}
+.innet-label{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#fff}
+.innet-item{font-family:var(--sans);font-size:.86rem;color:#fff;position:relative}
 .innet-item:not(:last-child)::after{content:"";position:absolute;right:-15px;top:50%;transform:translateY(-50%);width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.3)}
 
 /* differentiators */
@@ -165,7 +165,7 @@ section[id]{scroll-margin-top:84px}
 .quote-card{background:var(--navy-deep);color:#fff;border-radius:var(--r);padding:48px 44px;position:relative;overflow:hidden}
 .quote-card .qmark{font-family:var(--serif);font-size:5rem;line-height:.6;color:var(--gold-soft);opacity:.6;margin-bottom:10px}
 .quote-card p{font-family:var(--serif);font-size:1.5rem;font-style:italic;line-height:1.4;color:#fff;margin-bottom:22px}
-.quote-card cite{font-family:var(--sans);font-size:.82rem;font-style:normal;color:rgba(255,255,255,.6);letter-spacing:.02em}
+.quote-card cite{font-family:var(--sans);font-size:.82rem;font-style:normal;color:#fff;letter-spacing:.02em}
 .quote-card .watermark{position:absolute;right:-30px;bottom:-40px;width:200px;color:#fff;opacity:.05}
 
 /* services */
@@ -209,49 +209,49 @@ section[id]{scroll-margin-top:84px}
 .contact-card .crow:not(:last-child){padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.08)}
 .crow .ci{width:38px;height:38px;flex:0 0 auto;border:1px solid rgba(255,255,255,.2);border-radius:var(--r);display:flex;align-items:center;justify-content:center;color:var(--gold-soft)}
 .crow .ci svg{width:17px;height:17px}
-.crow .cl{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:3px}
-.crow .cv{color:rgba(255,255,255,.9);font-size:.98rem}
-.crow .cv a{color:var(--gold-soft)}
+.crow .cl{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:3px}
+.crow .cv{color:#fff;font-size:.98rem}
+.crow .cv a{color:#fff}
 .form{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:38px 36px}
 .form h3{color:#fff;margin-bottom:6px}
-.form .fsub-note{font-size:.86rem;color:rgba(255,255,255,.55);margin-bottom:26px}
+.form .fsub-note{font-size:.86rem;color:#fff;margin-bottom:26px}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .fg{margin-bottom:16px;display:flex;flex-direction:column;gap:7px}
-.fg label{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.7)}
-.fg .opt{color:rgba(255,255,255,.35);font-weight:400;text-transform:none;letter-spacing:0}
+.fg label{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.06em;color:#fff}
+.fg .opt{color:#fff;font-weight:400;text-transform:none;letter-spacing:0}
 .fi{padding:12px 14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:var(--r);color:#fff;font-family:var(--sans);font-size:.92rem;width:100%;transition:.2s}
-.fi::placeholder{color:rgba(255,255,255,.3)}
+.fi::placeholder{color:#fff}
 .fi:focus{outline:none;border-color:var(--gold-soft);background:rgba(255,255,255,.08)}
 select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,.4)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px}
 select.fi option{background:var(--navy-deep)}
-.fnote{font-size:.72rem;color:rgba(255,255,255,.4);margin-top:14px;text-align:center;line-height:1.6}
-.fnote a{color:rgba(255,255,255,.6)}
+.fnote{font-size:.72rem;color:#fff;margin-top:14px;text-align:center;line-height:1.6}
+.fnote a{color:#fff}
 .fsuccess{display:none;text-align:center;padding:48px 20px}
 .fsuccess svg{width:52px;height:auto;margin:0 auto 18px;color:var(--gold-soft)}
 .fsuccess h3{color:#fff;margin-bottom:8px}
-.fsuccess p{color:rgba(255,255,255,.6);font-size:.92rem;max-width:300px;margin:0 auto}
+.fsuccess p{color:#fff;font-size:.92rem;max-width:300px;margin:0 auto}
 
 /* closing CTA */
 .closing{position:relative;text-align:center;background:
   radial-gradient(120% 120% at 50% 0%,#22366f 0%,var(--navy-deep) 60%);color:#fff;overflow:hidden}
 .closing h2{color:#fff;max-width:720px;margin:0 auto 18px}
-.closing p{color:rgba(255,255,255,.72);max-width:520px;margin:0 auto 34px;font-size:1.06rem}
+.closing p{color:#fff;max-width:520px;margin:0 auto 34px;font-size:1.06rem}
 .closing .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.closing .cmark{width:64px;color:#fff;opacity:.9;margin:0 auto 26px}
+.closing .cmark{display:inline-block;width:64px;color:#fff;opacity:.9;margin:0 auto 26px}
 
 /* footer */
-footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 30px}
+footer{background:var(--navy-deeper);color:#fff;padding:64px 0 30px}
 .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:44px;margin-bottom:46px}
 .foot-brand .fb{display:flex;align-items:center;gap:12px;margin-bottom:18px}
 .foot-brand .fb .m{width:30px;height:36px;color:#fff;flex:0 0 auto;display:block}
 .foot-brand .fb .m svg{width:100%;height:100%}
 .foot-brand .fb .n{font-family:var(--serif);font-size:1.28rem;color:#fff;font-weight:600}
-.foot-brand p{font-size:.9rem;line-height:1.7;color:rgba(255,255,255,.55);max-width:300px}
-.foot .fh{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.42);margin-bottom:18px}
+.foot-brand p{font-size:.9rem;line-height:1.7;color:#fff;max-width:300px}
+.foot .fh{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#fff;margin-bottom:18px}
 .foot ul{display:flex;flex-direction:column;gap:11px}
-.foot ul a{font-size:.9rem;color:rgba(255,255,255,.6);transition:color .2s}
+.foot ul a{font-size:.9rem;color:#fff;transition:color .2s}
 .foot ul a:hover{color:#fff}
-.foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:26px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.78rem;color:rgba(255,255,255,.38)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:26px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.78rem;color:#fff}
 
 .fade{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
 .fade.vis{opacity:1;transform:none}
@@ -302,9 +302,9 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
 /* portal card */
 .portal{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:40px 36px;text-align:center}
 .portal h3{color:#fff;margin-bottom:10px}
-.portal p{color:rgba(255,255,255,.62);font-size:.95rem;max-width:400px;margin:0 auto 26px}
+.portal p{color:#fff;font-size:.95rem;max-width:400px;margin:0 auto 26px}
 .portal .pbtns{display:flex;flex-direction:column;gap:12px;max-width:320px;margin:0 auto}
-.portal .note{font-size:.72rem;color:rgba(255,255,255,.42);margin-top:18px;line-height:1.6}
+.portal .note{font-size:.72rem;color:#fff;margin-top:18px;line-height:1.6}
 .member p.bio{font-size:.86rem;color:var(--muted);line-height:1.65;margin-top:10px;text-align:center}
 .member .pro{font-family:var(--sans);font-size:.74rem;color:var(--muted);font-style:italic}
 .team-grid5{display:grid;grid-template-columns:repeat(3,1fr);gap:44px 36px;max-width:980px;margin:0 auto}
@@ -314,27 +314,29 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
 
 
 /* ── NAVY THEME (matches the intro animation — white text on navy, all through the site) ── */
+/* All text tokens unified to a single solid white — --gold/--gold-soft stay defined only for non-text accents (icons, dividers, borders, stars). */
 :root{
-    --gold-ink:#d8c49a;
+    --gold-ink:#fff;
     --paper:#0f1730;          /* page bg */
     --cream:#141f42;          /* alt section bg */
     --line:#28345c;           /* hairlines */
     --line-soft:#1d2848;
-    --ink:#f1efe6;            /* headings */
-    --body:#c6cbdc;           /* body text */
-    --muted:#939bb6;          /* secondary */
+    --ink:#fff;               /* headings */
+    --body:#fff;              /* body text */
+    --muted:#fff;             /* secondary */
     --wh:#131c3d;             /* card surfaces */
   }
   .pillar{border-top-color:#4a63b5}
-  .avatar{color:var(--gold-soft)}
+  .avatar{color:#fff}
   .quote-card{border:1px solid rgba(255,255,255,.08)}
   .tcard .qm{color:var(--gold)}
-  .fee-amt{color:var(--gold-soft)}
+  .fee-amt{color:#fff}
   header.solid{background:rgba(13,20,44,.92);border-bottom-color:rgba(255,255,255,.08)}
   header.solid .brand-mark{color:#fff}
-  header.solid .hamb span{background:var(--ink)}
+  header.solid .hamb span{background:#fff}
   header.solid .nav .btn-nav{border-color:#3b4f97}
-  .btn-ghost:hover{border-color:var(--gold-soft);color:var(--gold-soft)}
+  header.solid .nav-links a.navlink:hover{color:#fff}
+  .btn-ghost:hover{border-color:var(--gold-soft);color:#fff}
   .nav-links.open{box-shadow:0 14px 32px rgba(0,0,0,.5)}
 
 
@@ -360,27 +362,75 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
 .path p{color:var(--muted);font-size:.95rem;margin-bottom:20px}
 .path .go{font-family:var(--sans);font-size:.82rem;font-weight:600;color:var(--navy);display:inline-flex;gap:7px;align-items:center}
 .path{border-top-color:#4a63b5}
-.path .go{color:var(--gold-soft)}
+.path .go{color:#fff}
 @media(max-width:760px){.paths{grid-template-columns:1fr}}
 
 
-/* team circle — equal owners, no ordering */
-.team-wheel{position:relative;width:min(760px,92vw);aspect-ratio:1;margin:0 auto}
+/* team circle — equal owners, no ordering. --wheel-w drives both the box size and every spoke's
+   translate distance (via calc() below), so the whole pentagon scales fluidly with the viewport
+   instead of breaking at a fixed checkpoint — this is what keeps it a circle on mobile instead of
+   collapsing to a grid. */
+.team-wheel{--wheel-w:min(760px,92cqw);position:relative;width:var(--wheel-w);aspect-ratio:1;margin:0 auto}
 .team-wheel .hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;width:230px}
-.team-wheel .hub .hmark{width:56px;margin:0 auto 14px;color:var(--navy);opacity:.85}
+.team-wheel .hub .hmark{display:inline-block;width:56px;margin:0 auto 14px;color:var(--navy);opacity:.85}
 .team-wheel .hub .hmark svg{width:100%;height:auto}
 .team-wheel .hub .hline{font-family:var(--serif);font-style:italic;font-size:1.18rem;color:var(--ink);line-height:1.4}
 .team-wheel .hub .hsub{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-ink);margin-top:10px}
-.team-wheel .spoke{position:absolute;left:50%;top:50%;width:196px;margin-left:-98px;text-align:center}
+.team-wheel .spoke{position:absolute;left:50%;top:50%;width:196px;text-align:center;transition:opacity .25s ease}
 .team-wheel .ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:66%;height:66%;border:1px dashed var(--line);border-radius:50%;pointer-events:none}
 .team-wheel .hub .hmark{color:#fff}
-@media(max-width:900px){
-  .team-wheel{width:auto;aspect-ratio:auto;display:grid;grid-template-columns:1fr 1fr;gap:34px 20px}
-  .team-wheel .ring{display:none}
-  .team-wheel .hub{position:static;transform:none;grid-column:1/-1;width:auto;margin-bottom:6px}
-  .team-wheel .spoke{position:static;margin-left:0;width:auto;transform:none!important}
+.team-wheel .member .bio{display:none}
+
+/* desktop: the ring already shows full credentials, so a click affordance + hover lift signals
+   that there's more — the full bio — behind a click, same interaction as the mobile tap-to-zoom.
+   Hover gated to real pointer devices (mouse/trackpad) so a tap on touchscreens can't leave the
+   card "stuck" lifted after the finger releases — a real hover-sticking bug on iOS/Android Safari. */
+.team-wheel .spoke .member{cursor:pointer;-webkit-tap-highlight-color:transparent;border-radius:var(--r);transition:transform .2s ease}
+@media(hover:hover) and (pointer:fine){
+  .team-wheel .spoke .member:hover{transform:translateY(-3px)}
+  .team-wheel .spoke .member:hover .avatar{box-shadow:0 10px 26px rgba(0,0,0,.35)}
 }
-@media(max-width:520px){.team-wheel{grid-template-columns:1fr}}
+.team-wheel .spoke .member:active{transform:scale(.96)}
+
+/* mobile: same circle, scaled down and zoomed out — spokes shrink to a tappable avatar + first
+   name, full credentials open in the zoom card on tap instead of being crammed into the ring */
+@media(max-width:900px){
+  .team-wheel{--wheel-w:min(760px,94cqw)}
+  .team-wheel .hub{width:min(150px,40cqw)}
+  .team-wheel .hub .hmark{width:30px;margin-bottom:6px}
+  .team-wheel .hub .hline{font-size:.82rem;line-height:1.25}
+  .team-wheel .hub .hsub{display:none}
+  .team-wheel .spoke{width:84px;transform-origin:center center}
+  .team-wheel .avatar{width:50px;height:50px;font-size:.92rem;margin-bottom:8px;transition:transform .2s ease,box-shadow .2s ease}
+  .team-wheel .spoke:active .avatar{transform:scale(.92)}
+  .team-wheel .member h3{font-size:.72rem;line-height:1.25;margin-bottom:0;text-wrap:balance}
+  .team-wheel .member .creds,.team-wheel .member .role,.team-wheel .member .cert,.team-wheel .member .pro{display:none}
+  .team-wheel .avatar::after{content:"";position:absolute;inset:-8px;border-radius:50%}
+}
+@media(max-width:480px){
+  .team-wheel{--wheel-w:min(760px,96cqw)}
+  .team-wheel .avatar{width:44px;height:44px;font-size:.82rem}
+  .team-wheel .member h3{font-size:.68rem}
+}
+
+/* click/tap-to-zoom card: on any breakpoint, clicking or tapping a founder pops their full detail
+   — including their bio — into a centered card over a dimmed backdrop. On mobile this is the only
+   way to see credentials/role/cert (hidden from the compact ring); on desktop it's an enrichment,
+   since the ring already shows credentials/role but not the fuller bio. */
+.wheel-zoom{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .28s ease}
+.wheel-zoom.open{opacity:1;pointer-events:auto}
+.wheel-zoom-backdrop{position:absolute;inset:0;background:rgba(6,11,28,.78);backdrop-filter:blur(3px)}
+.wheel-zoom-card{position:relative;background:var(--wh);border:1px solid var(--line);border-radius:var(--r);padding:40px 34px 32px;max-width:320px;width:100%;max-height:85vh;overflow-y:auto;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.45);transform:scale(.82);transition:transform .32s cubic-bezier(.22,.9,.32,1.2)}
+.wheel-zoom.open .wheel-zoom-card{transform:scale(1)}
+.wheel-zoom-card .avatar{width:84px;height:84px;font-size:1.5rem;margin:0 auto 18px}
+.wheel-zoom-card h3{font-family:var(--serif);font-size:1.4rem;color:#fff;margin-bottom:6px;font-weight:600}
+.wheel-zoom-card .creds{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:7px}
+.wheel-zoom-card .role{font-family:var(--sans);font-size:.88rem;color:#fff}
+.wheel-zoom-card .cert{font-family:var(--sans);font-size:.72rem;color:#fff;margin-top:8px;line-height:1.5}
+.wheel-zoom-card .bio{display:block;font-family:var(--sans);font-size:.85rem;color:#fff;opacity:.88;line-height:1.65;margin-top:18px;padding-top:18px;border-top:1px solid var(--line);text-align:left}
+.wheel-zoom-close{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:transparent;border:1px solid var(--line);color:#fff;font-size:1.1rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.wheel-zoom-close:hover{border-color:var(--gold-soft)}
+@media(min-width:601px){.wheel-zoom-card{max-width:420px;padding:44px 40px 36px}}
 
 
 /* brand interludes */
@@ -390,10 +440,10 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
 .interlude .defn{font-family:var(--serif);font-size:clamp(1.2rem,2.2vw,1.5rem);font-style:italic;color:var(--body);line-height:1.55;max-width:620px;margin:22px auto 0}
 .interlude .turn{font-family:var(--sans);font-size:.95rem;color:var(--muted);max-width:520px;margin:18px auto 0;line-height:1.75}
 .interlude .rule{width:44px;height:1px;background:var(--gold);margin:26px auto 0}
-.interlude-dark{background:var(--navy-deep);color:rgba(255,255,255,.8);padding:96px 0;text-align:center;position:relative;overflow:hidden}
+.interlude-dark{background:var(--navy-deep);color:#fff;padding:96px 0;text-align:center;position:relative;overflow:hidden}
 .interlude-dark .big{font-family:var(--serif);font-size:clamp(1.9rem,3.6vw,2.8rem);font-style:italic;color:#fff;line-height:1.3;max-width:700px;margin:0 auto}
-.interlude-dark .sub{font-family:var(--sans);font-size:1rem;color:rgba(255,255,255,.66);max-width:560px;margin:22px auto 0;line-height:1.8}
-.interlude-dark .istar{width:10px;height:10px;margin:0 auto 26px;background:var(--gold-soft);clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%)}
+.interlude-dark .sub{font-family:var(--sans);font-size:1rem;color:#fff;max-width:560px;margin:22px auto 0;line-height:1.8}
+.interlude-dark .istar{display:inline-block;width:10px;height:10px;margin:0 auto 26px;background:var(--gold-soft);clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%)}
 @media(max-width:640px){.interlude{padding:64px 0}.interlude-dark{padding:72px 0}}
 
 
@@ -402,49 +452,65 @@ footer{background:var(--navy-deeper);color:rgba(255,255,255,.58);padding:64px 0 
 #gate{position:fixed;inset:0;z-index:400;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:0;text-align:center;background:radial-gradient(130% 85% at 50% 8%,#182a58 0%,var(--navy-deep) 40%,var(--navy-deeper) 100%);color:#fff;transition:opacity .9s ease;overflow:auto;padding:max(18px,env(safe-area-inset-top)) 18px max(40px,env(safe-area-inset-bottom))}
 #gate:not(.teaser){justify-content:center}
 #gate.open{opacity:0;pointer-events:none}
-#gate .gvid{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:var(--navy-deeper);opacity:1;transition:opacity .5s ease}
-#gate .gvid.out{opacity:0;pointer-events:none}
+#gate .gvid{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:var(--navy-deeper);opacity:1;transition:opacity .7s ease,transform .7s ease}
+#gate .gvid.out{opacity:0;pointer-events:none;transform:scale(1.025)}
 #gate .gvid video{width:100%;height:100%;object-fit:contain}
+@media(prefers-reduced-motion:reduce){#gate .gvid{transition:opacity .01s linear;}#gate .gvid.out{transform:none}}
 #gate .grow{display:flex;align-items:center;justify-content:center;gap:14px}
 #gate .ggo{flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:var(--gold-soft);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s ease,background .2s ease;-webkit-tap-highlight-color:transparent}
 #gate .ggo svg{width:19px;height:19px}
 #gate .ggo:hover,#gate .ggo:focus-visible{border-color:var(--gold);background:rgba(184,149,90,.12);outline:none}
 #gate .gform{margin-top:8px;opacity:1;transform:none}
-#gate .glabel{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);display:block;margin-bottom:12px}
+#gate .glabel{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#fff;display:block;margin-bottom:12px}
 #gate input{background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,.28);color:#fff;font-family:var(--serif);font-size:1.7rem;letter-spacing:.55em;text-align:center;width:min(172px,44vw);padding:6px 0 10px .55em;transition:border-color .25s ease}
 #gate input:focus{outline:none;border-color:var(--gold)}
 #gate.err input{border-color:#e8938a;animation:gshake .4s ease}
-#gate .ghint{font-family:var(--sans);font-size:.78rem;color:rgba(255,255,255,.4);margin-top:18px;max-width:320px}
+#gate .ghint{font-family:var(--sans);font-size:.78rem;color:#fff;margin-top:18px;max-width:320px}
 @keyframes gshake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
 @media(prefers-reduced-motion:reduce){#gate.err input{animation:none}}
 body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
 
-/* gate teaser: logo, mission, group photo, credentials ring, contact info — public, reached after the animation; password below unlocks the rest of the site. Kept deliberately simple: one continuation of the video's own white-on-navy palette, no extra sections. */
-#gate .gteaser{position:relative;z-index:4;width:100%;max-width:640px;margin:0 auto;padding:48px 0 36px;opacity:0;pointer-events:none;transition:opacity .8s ease;display:flex;flex-direction:column;align-items:center;text-align:center}
-#gate.teaser .gteaser{opacity:1;pointer-events:auto}
+/* gate teaser: logo, name, tagline, group photo, the team wheel, password — mission and contact detail
+   now live behind the password, in the real site, instead of being duplicated here. Kept deliberately
+   simple: one continuation of the video's own white-on-navy palette, no extra sections. The teaser
+   fades AND scales up from .96->1 with a blur-out, the same "coming forward" motion used by the
+   click-to-magnify bio cards below — so video -> splash -> team click reads as one continuous,
+   coordinated move instead of separate techniques bolted together. */
+#gate .gteaser{position:relative;z-index:4;width:100%;max-width:640px;margin:0 auto;padding:48px 0 36px;opacity:0;pointer-events:none;transform:scale(.96);filter:blur(6px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.9,.32,1.1),filter .8s ease;display:flex;flex-direction:column;align-items:center;text-align:center;container-type:inline-size}
+#gate.teaser .gteaser{opacity:1;pointer-events:auto;transform:scale(1);filter:blur(0)}
+@media(prefers-reduced-motion:reduce){#gate .gteaser{transition:opacity .01s linear;transform:none;filter:none}}
+
+/* splash: mark, name, place, tagline, group photo — the first screenful. Matches the real site's
+   .hero-splash styling (same mark/wordmark/tagline treatment) so it reads as a continuation of the
+   same design, not a separate screen bolted on front. Scroll cue at the foot points at the team wheel. */
+#gate .tsplash{display:flex;flex-direction:column;align-items:center;width:100%}
 #gate .gteaser .gmark{display:block;width:min(76px,18vw);color:#fff;margin:0 auto 16px}
 #gate .gteaser .gmark svg{display:block;width:100%;aspect-ratio:1529.2/2001}
 #gate .twordmark{font-family:var(--serif);color:#fff;font-weight:500;font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:6px}
-#gate .teaser-sub{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft)}
-#gate .tmission{font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,2vw,1.24rem);line-height:1.55;color:rgba(255,255,255,.82);max-width:520px;margin:26px auto 0}
+#gate .teaser-sub{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#fff}
+#gate .ttag{font-family:var(--serif);font-style:italic;font-size:clamp(1.1rem,2.4vw,1.4rem);color:#fff;margin-top:16px}
 #gate .trule{width:40px;height:1px;background:var(--gold);opacity:.7;margin:38px auto}
-#gate .tband{width:min(600px,88vw);margin:0 auto}
+#gate .tband{width:min(600px,88vw);margin:30px auto 0}
 #gate .tband img{width:100%;height:auto;display:block;border-radius:var(--r);box-shadow:0 20px 60px rgba(0,0,0,.4)}
-#gate .gteaser .team-wheel{width:min(700px,92vw);margin:52px auto 0}
+#gate .tscroll{margin-top:34px;display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:none;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent;
+  font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#fff;opacity:.8;transition:opacity .2s ease}
+#gate .tscroll:hover,#gate .tscroll:focus-visible{opacity:1}
+#gate .tscroll svg{width:16px;height:16px;animation:bob 2s ease infinite}
+@media(prefers-reduced-motion:reduce){#gate .tscroll svg{animation:none}}
+#gate .gteaser .team-wheel{--wheel-w:min(700px,92cqw);width:var(--wheel-w);margin:18px auto 0;scroll-margin-top:24px}
+@media(max-width:900px){#gate .gteaser .team-wheel{--wheel-w:min(700px,94cqw)}}
+@media(max-width:480px){#gate .gteaser .team-wheel{--wheel-w:min(700px,96cqw)}}
 .team-wheel.dark .hub .hmark{color:#fff}
 .team-wheel.dark .hub .hline{color:#fff}
-.team-wheel.dark .hub .hsub{color:var(--gold-soft)}
+.team-wheel.dark .hub .hsub{color:#fff}
 .team-wheel.dark .member .avatar{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.22);color:#fff}
 .team-wheel.dark .member h3{color:#fff}
-.team-wheel.dark .member .creds{color:var(--gold-soft)}
-.team-wheel.dark .member .role{color:rgba(255,255,255,.62)}
-.team-wheel.dark .member .cert{color:rgba(255,255,255,.5)}
-.team-wheel.dark .member .pro{color:rgba(255,255,255,.5)}
+.team-wheel.dark .member .creds{color:#fff}
+.team-wheel.dark .member .role{color:#fff}
+.team-wheel.dark .member .cert{color:#fff}
+.team-wheel.dark .member .pro{color:#fff}
 .team-wheel.dark .ring{border-color:rgba(255,255,255,.16)}
-#gate .tcontact{display:flex;flex-direction:column;gap:10px;font-family:var(--sans);font-size:.86rem;color:rgba(255,255,255,.75);line-height:1.6}
-#gate .tcontact a{color:rgba(255,255,255,.75)}
-#gate .tcontact .tc-label{display:block;font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:3px}
-#gate .tfoot{font-family:var(--sans);font-size:.72rem;color:rgba(255,255,255,.34);margin-top:40px}
+#gate .tfoot{font-family:var(--sans);font-size:.72rem;color:#fff;margin-top:40px}
 @media(max-width:700px){#gate .gteaser .team-wheel{margin-top:44px}}
 /* ---- end PREVIEW GATE ---- */
 </style>
@@ -459,43 +525,41 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
     <video id="gvideo" muted playsinline preload="auto"><source src="waypoint-gate.mp4" type="video/mp4"><source src="waypoint-gate.webm" type="video/webm"></video>
   </div>
   <div class="gteaser">
-    <span class="gmark" aria-hidden="true"><svg viewBox="0 0 1529.2 2001"><use href="#wm"/></svg></span>
-    <h1 class="twordmark">Waypoint Cooperative</h1>
-    <div class="teaser-sub">Torrington, Connecticut</div>
-    <p class="tmission">At Waypoint Cooperative, we are committed to being a provider for providers — a sanctuary where therapists, social workers, counselors, and behavioral health professionals receive support, build sustainable practices, and rediscover purpose in their work.</p>
+    <div class="tsplash">
+      <span class="gmark" aria-hidden="true"><svg viewBox="0 0 1529.2 2001"><use href="#wm"/></svg></span>
+      <h1 class="twordmark">Waypoint Cooperative</h1>
+      <div class="teaser-sub">Torrington, Connecticut</div>
+      <p class="ttag">Growing together.</p>
+      <figure class="tband">
+        <img src="team-photo.jpg" alt="The five clinician-founders of Waypoint Cooperative standing together on the iron fire escape of a brick mill building in Torrington" width="1920" height="872" loading="lazy">
+      </figure>
+      <button type="button" class="tscroll" id="tScrollBtn" aria-label="Scroll to meet the founders"><span>Meet the founders</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+    </div>
     <span class="trule" aria-hidden="true"></span>
-    <figure class="tband">
-      <img src="team-photo.jpg" alt="The five clinician-founders of Waypoint Cooperative standing together on the iron fire escape of a brick mill building in Torrington" width="1920" height="872" loading="lazy">
-    </figure>
-    <div class="team-wheel dark" aria-label="Our founders">
+    <div class="team-wheel dark" id="gTeamWheel" aria-label="Our founders">
       <span class="ring" aria-hidden="true"></span>
       <div class="hub">
         <span class="hmark" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#wm"/></svg></span>
         <div class="hline">Growing<br>together.</div>
         <div class="hsub">Founding Clinicians</div>
       </div>
-      <div class="spoke" style="transform:translate(0px,-330px) translateY(-50%)">
-        <div class="member"><div class="avatar">EO</div><h3>Erin O'Neil</h3><div class="creds">MSW · LCSW · LICSW</div><div class="role">Founder · Chief Executive Officer <span class="pro">(she/her)</span></div><div class="cert">EMDRIA Certified Therapist™<br>EMDRIA Approved Consultant™</div></div>
+      <div class="spoke" style="transform:translate(calc(var(--wheel-w) * 0),calc(var(--wheel-w) * -.43421)) translate(-50%,-50%)">
+        <div class="member"><div class="avatar">EO</div><h3>Erin O'Neil</h3><div class="creds">MSW · LCSW · LICSW</div><div class="role">Founder · Chief Executive Officer <span class="pro">(she/her)</span></div><div class="cert">EMDRIA Certified Therapist™<br>EMDRIA Approved Consultant™</div><div class="bio">Erin holds an MSW in Community Organizing, Planning and Development and is an Advanced Certified EMDR Therapist and EMDRIA-Approved Consultant. Her clinical focus spans trauma, grief, substance use, and perinatal and prenatal mental health, with additional training in Internal Family Systems and motivational interviewing. As CEO, she leads Waypoint's clinical direction and day-to-day cooperative operations.</div></div>
       </div>
-      <div class="spoke" style="transform:translate(314px,-102px) translateY(-50%)">
-        <div class="member"><div class="avatar">AA</div><h3>Arthur Anderson</h3><div class="creds">MSN · MSW · APRN · PMHNP-BC · LCSW</div><div class="role">Founder · Chief Medical Officer <span class="pro">(he/him)</span></div></div>
+      <div class="spoke" style="transform:translate(calc(var(--wheel-w) * .41316),calc(var(--wheel-w) * -.13421)) translate(-50%,-50%)">
+        <div class="member"><div class="avatar">AA</div><h3>Arthur Anderson</h3><div class="creds">MSN · MSW · APRN · PMHNP-BC · LCSW</div><div class="role">Founder · Chief Medical Officer <span class="pro">(he/him)</span></div><div class="bio">AJ holds a Yale MSN in Psychiatry, a Columbia MSW, and a business degree from the University of New Hampshire — a dual-credentialed background that lets him deliver both medication management and psychotherapy as a single provider. He practices consultation-liaison psychiatry at Bridgeport Hospital (Yale New Haven Health), owns Azimuth Therapeutic Services, LLC, and is a U.S. military veteran.</div></div>
       </div>
-      <div class="spoke" style="transform:translate(194px,267px) translateY(-50%)">
-        <div class="member"><div class="avatar">AN</div><h3>Anthony Nave</h3><div class="creds">LICSW · LADC · ACS</div><div class="role">Founder · Chief Clinical Officer <span class="pro">(he/him)</span></div><div class="cert">EMDRIA Certified Therapist™<br>EMDRIA Approved Consultant™</div></div>
+      <div class="spoke" style="transform:translate(calc(var(--wheel-w) * .25526),calc(var(--wheel-w) * .35132)) translate(-50%,-50%)">
+        <div class="member"><div class="avatar">AN</div><h3>Anthony Nave</h3><div class="creds">LICSW · LADC · ACS</div><div class="role">Founder · Chief Clinical Officer <span class="pro">(he/him)</span></div><div class="cert">EMDRIA Certified Therapist™<br>EMDRIA Approved Consultant™</div><div class="bio">Anthony brings 17+ years in behavioral health and education, including six years as Clinical Director at Mountainside Treatment Center, where he oversaw 80+ clinical and administrative staff and 500–600 clients across Connecticut, New York, and New Jersey. He holds an MSW from Southern Connecticut State University, is an Approved Clinical Supervisor, and is licensed across five states. He co-owns The Healing Space, a group therapy and consultation practice, and has been featured in Psychology Today, Authority Magazine, and on PBS for his work destigmatizing mental health treatment.</div></div>
       </div>
-      <div class="spoke" style="transform:translate(-194px,267px) translateY(-50%)">
-        <div class="member"><div class="avatar">TR</div><h3>Tiffany Rollo</h3><div class="creds">LPC · ATR</div><div class="role">Founder · Chief Program Development Officer <span class="pro">(she/her)</span></div></div>
+      <div class="spoke" style="transform:translate(calc(var(--wheel-w) * -.25526),calc(var(--wheel-w) * .35132)) translate(-50%,-50%)">
+        <div class="member"><div class="avatar">TR</div><h3>Tiffany Rollo</h3><div class="creds">LPC · ATR</div><div class="role">Founder · Chief Program Development Officer <span class="pro">(she/her)</span></div><div class="bio">Licensed Professional Counselor (LPC) and Registered Art Therapist (ATR).</div></div>
       </div>
-      <div class="spoke" style="transform:translate(-314px,-102px) translateY(-50%)">
-        <div class="member"><div class="avatar">SK</div><h3>Seon W. Kim</h3><div class="creds">PhD · LMFT</div><div class="role">Founder · Chief Research Officer <span class="pro">(he/him)</span></div><div class="cert">AAMFT Approved Supervisor</div></div>
+      <div class="spoke" style="transform:translate(calc(var(--wheel-w) * -.41316),calc(var(--wheel-w) * -.13421)) translate(-50%,-50%)">
+        <div class="member"><div class="avatar">SK</div><h3>Seon W. Kim</h3><div class="creds">PhD · LMFT</div><div class="role">Founder · Chief Research Officer <span class="pro">(he/him)</span></div><div class="cert">AAMFT Approved Supervisor</div><div class="bio">Seon holds a Ph.D. in Marriage and Family Therapy from Antioch University, where her dissertation examined therapeutic alliance in clinical videoconferencing. She's an Assistant Professor at Southern Connecticut State University, previously served as Clinical Director at Mountainside Treatment Center, and founded Consilient Therapy LLC in Torrington. She publishes regularly in peer-reviewed journals and Psychology Today on addiction, family systems, and telehealth.</div></div>
       </div>
     </div>
     <span class="trule" aria-hidden="true"></span>
-    <div class="tcontact">
-      <div class="tc-row"><span class="tc-label">Office</span>40 Main Street, Suite 16, Box 4<br>Torrington, CT 06790</div>
-      <div class="tc-row"><span class="tc-label">Phone</span><a href="tel:8609623945">(860) 962-3945</a></div>
-      <div class="tc-row"><span class="tc-label">Fax</span>(860) 996-8357</div>
-    </div>
     <form class="gform" autocomplete="off">
       <label class="glabel" for="gcode">Password</label>
       <div class="grow">
@@ -737,7 +801,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
     <div class="sec-head fade">
       <span class="eyebrow">The people behind the practice</span>
       <h2>Who you'll be working with</h2>
-      <p>Five clinician-founders. You'll know your clinician's name before your first visit — and they'll know yours.</p>
+      <p>Five clinician-founders — the people behind the practice.</p>
     </div>
     <div class="team-wheel fade">
       <span class="ring" aria-hidden="true"></span>
@@ -746,20 +810,20 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
         <div class="hline">Growing<br>together.</div>
         <div class="hsub">Founding Clinicians</div>
       </div>
-            <div class="spoke" style="transform:translate(0px,-330px) translateY(-50%)">
-        <div class="member"><div class="avatar">EO</div><h3>Erin O'Neil</h3><div class="creds">MSW · LCSW · LICSW</div><div class="role">Founder · Chief Executive Officer <span class="pro">(she/her)</span></div><div class="cert">EMDRIA Certified Therapist™<br>EMDRIA Approved Consultant™</div></div>
+            <div class="spoke" style="transform:translate(calc(var(--wheel-w) * 0),calc(var(--wheel-w) * -.43421)) translate(-50%,-50%)">
+        <div class="member"><div class="avatar">EO</div><h3>Erin O'Neil</h3><div class="creds">MSW · LCSW · LICSW</div><div class="role">Founder · Chief Executive Officer <span class="pro">(she/her)</span></div><div class="cert">EMDRIA Certified Therapist™<br>EMDRIA Approved Consultant™</div><div class="bio">Erin holds an MSW in Community Organizing, Planning and Development and is an Advanced Certified EMDR Therapist and EMDRIA-Approved Consultant. Her clinical focus spans trauma, grief, substance use, and perinatal and prenatal mental health, with additional training in Internal Family Systems and motivational interviewing. As CEO, she leads Waypoint's clinical direction and day-to-day cooperative operations.</div></div>
       </div>
-      <div class="spoke" style="transform:translate(314px,-102px) translateY(-50%)">
-        <div class="member"><div class="avatar">AA</div><h3>Arthur Anderson</h3><div class="creds">MSN · MSW · APRN · PMHNP-BC · LCSW</div><div class="role">Founder · Chief Medical Officer <span class="pro">(he/him)</span></div></div>
+      <div class="spoke" style="transform:translate(calc(var(--wheel-w) * .41316),calc(var(--wheel-w) * -.13421)) translate(-50%,-50%)">
+        <div class="member"><div class="avatar">AA</div><h3>Arthur Anderson</h3><div class="creds">MSN · MSW · APRN · PMHNP-BC · LCSW</div><div class="role">Founder · Chief Medical Officer <span class="pro">(he/him)</span></div><div class="bio">AJ holds a Yale MSN in Psychiatry, a Columbia MSW, and a business degree from the University of New Hampshire — a dual-credentialed background that lets him deliver both medication management and psychotherapy as a single provider. He practices consultation-liaison psychiatry at Bridgeport Hospital (Yale New Haven Health), owns Azimuth Therapeutic Services, LLC, and is a U.S. military veteran.</div></div>
       </div>
-      <div class="spoke" style="transform:translate(194px,267px) translateY(-50%)">
-        <div class="member"><div class="avatar">AN</div><h3>Anthony Nave</h3><div class="creds">LICSW · LADC · ACS</div><div class="role">Founder · Chief Clinical Officer <span class="pro">(he/him)</span></div><div class="cert">EMDRIA Certified Therapist™<br>EMDRIA Approved Consultant™</div></div>
+      <div class="spoke" style="transform:translate(calc(var(--wheel-w) * .25526),calc(var(--wheel-w) * .35132)) translate(-50%,-50%)">
+        <div class="member"><div class="avatar">AN</div><h3>Anthony Nave</h3><div class="creds">LICSW · LADC · ACS</div><div class="role">Founder · Chief Clinical Officer <span class="pro">(he/him)</span></div><div class="cert">EMDRIA Certified Therapist™<br>EMDRIA Approved Consultant™</div><div class="bio">Anthony brings 17+ years in behavioral health and education, including six years as Clinical Director at Mountainside Treatment Center, where he oversaw 80+ clinical and administrative staff and 500–600 clients across Connecticut, New York, and New Jersey. He holds an MSW from Southern Connecticut State University, is an Approved Clinical Supervisor, and is licensed across five states. He co-owns The Healing Space, a group therapy and consultation practice, and has been featured in Psychology Today, Authority Magazine, and on PBS for his work destigmatizing mental health treatment.</div></div>
       </div>
-      <div class="spoke" style="transform:translate(-194px,267px) translateY(-50%)">
-        <div class="member"><div class="avatar">TR</div><h3>Tiffany Rollo</h3><div class="creds">LPC · ATR</div><div class="role">Founder · Chief Program Development Officer <span class="pro">(she/her)</span></div></div>
+      <div class="spoke" style="transform:translate(calc(var(--wheel-w) * -.25526),calc(var(--wheel-w) * .35132)) translate(-50%,-50%)">
+        <div class="member"><div class="avatar">TR</div><h3>Tiffany Rollo</h3><div class="creds">LPC · ATR</div><div class="role">Founder · Chief Program Development Officer <span class="pro">(she/her)</span></div><div class="bio">Licensed Professional Counselor (LPC) and Registered Art Therapist (ATR).</div></div>
       </div>
-      <div class="spoke" style="transform:translate(-314px,-102px) translateY(-50%)">
-        <div class="member"><div class="avatar">SK</div><h3>Seon W. Kim</h3><div class="creds">PhD · LMFT</div><div class="role">Founder · Chief Research Officer <span class="pro">(he/him)</span></div><div class="cert">AAMFT Approved Supervisor</div></div>
+      <div class="spoke" style="transform:translate(calc(var(--wheel-w) * -.41316),calc(var(--wheel-w) * -.13421)) translate(-50%,-50%)">
+        <div class="member"><div class="avatar">SK</div><h3>Seon W. Kim</h3><div class="creds">PhD · LMFT</div><div class="role">Founder · Chief Research Officer <span class="pro">(he/him)</span></div><div class="cert">AAMFT Approved Supervisor</div><div class="bio">Seon holds a Ph.D. in Marriage and Family Therapy from Antioch University, where her dissertation examined therapeutic alliance in clinical videoconferencing. She's an Assistant Professor at Southern Connecticut State University, previously served as Clinical Director at Mountainside Treatment Center, and founded Consilient Therapy LLC in Torrington. She publishes regularly in peer-reviewed journals and Psychology Today on addiction, family systems, and telehealth.</div></div>
       </div>
     </div>
   </div>
@@ -797,7 +861,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
     <div class="fade">
       <span class="eyebrow">Get started</span>
       <h2>New clients are always welcome</h2>
-      <p style="margin-top:16px;color:rgba(255,255,255,.72)">Call us, or request an appointment through our secure client portal. We'll match you with the right clinician and verify your insurance before your first visit.</p>
+      <p style="margin-top:16px;color:#fff">Call us, or request an appointment through our secure client portal. We'll match you with the right clinician and verify your insurance before your first visit.</p>
       <a href="tel:8609623945" class="contact-phone">860 · 962 · 3945</a>
       <div class="contact-card">
       <div class="crow">
@@ -822,7 +886,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
           <a href="https://waypointcooperative.clientsecure.me/" target="_blank" rel="noopener" class="btn btn-gold" style="justify-content:center">Request an Appointment</a>
           <a href="https://waypointcooperative.clientsecure.me/" target="_blank" rel="noopener" class="btn btn-onnavy" style="justify-content:center">Client Portal Login</a>
         </div>
-        <p class="note">The client portal is not for emergencies. In a mental health emergency, call or text <a href="tel:988" style="color:rgba(255,255,255,.66)">988</a>, or call 911 / go to your nearest emergency room.</p>
+        <p class="note">The client portal is not for emergencies. In a mental health emergency, call or text <a href="tel:988" style="color:#fff">988</a>, or call 911 / go to your nearest emergency room.</p>
       </div>
     </div>
   </div>
@@ -858,7 +922,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
       </div>
       <div class="foot">
         <div class="fh">Contact</div>
-        <ul><li><a href="tel:8609623945">(860) 962-3945</a></li><li>Fax (860) 996-8357</li><li>40 Main St, Suite 16, Box 4<br>Torrington, CT 06790</li><li style="margin-top:6px;color:rgba(255,255,255,.42)">In crisis? Call or text 988</li></ul>
+        <ul><li><a href="tel:8609623945">(860) 962-3945</a></li><li>Fax (860) 996-8357</li><li>40 Main St, Suite 16, Box 4<br>Torrington, CT 06790</li><li style="margin-top:6px;color:#fff">In crisis? Call or text 988</li></ul>
       </div>
     </div>
     <div class="foot-bottom">
@@ -867,6 +931,20 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
     </div>
   </div>
 </footer>
+
+<!-- shared zoom card for the mobile team circle: tapping any founder avatar populates and opens this -->
+<div class="wheel-zoom" id="wheelZoom" aria-hidden="true">
+  <div class="wheel-zoom-backdrop" data-wz-close></div>
+  <div class="wheel-zoom-card" role="dialog" aria-modal="true" aria-label="Founder detail">
+    <button type="button" class="wheel-zoom-close" data-wz-close aria-label="Close">&times;</button>
+    <div class="avatar" id="wzAvatar"></div>
+    <h3 id="wzName"></h3>
+    <div class="creds" id="wzCreds"></div>
+    <div class="role" id="wzRole"></div>
+    <div class="cert" id="wzCert"></div>
+    <div class="bio" id="wzBio"></div>
+  </div>
+</div>
 
 <script>
 (function(){
@@ -880,16 +958,23 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
       var vwrap=g.querySelector('.gvid'),vid=g.querySelector('#gvideo');
       var input=g.querySelector('#gcode');
 
-      /* -- teaser: logo, mission, group photo, credentials ring, contact info — public, reached after
-         the animation plays through as one continuous clip, ahead of the password -- */
+      /* -- teaser: logo, name, tagline, group photo, team wheel, password — public splash, reached
+         after the animation plays through as one continuous clip. Mission/contact detail live behind
+         the password, in the real site. -- */
       function showTeaser(){
         if(g.classList.contains('teaser'))return;
         g.classList.add('teaser');
-        g.scrollTop=0; /* land on the top of the teaser (logo/mission), not mid-scroll */
+        g.scrollTop=0; /* land on the top of the teaser, not mid-scroll */
         if(vwrap){vwrap.classList.add('out');try{vid.pause()}catch(e){}}
         setTimeout(function(){
           if(vwrap&&vwrap.parentNode)vwrap.parentNode.removeChild(vwrap);
-        },650);
+        },720);
+      }
+      var scrollBtn=g.querySelector('#tScrollBtn'),teamAnchor=g.querySelector('#gTeamWheel');
+      if(scrollBtn&&teamAnchor){
+        scrollBtn.addEventListener('click',function(){
+          teamAnchor.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+        });
       }
 
       /* -- one continuous video (intro + definition concatenated into a single file, no swap/crossfade
@@ -947,6 +1032,54 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
     var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('vis');io.unobserve(x.target);}})},{threshold:.12,rootMargin:'0px 0px -40px'});
     document.querySelectorAll('.fade').forEach(function(el){io.observe(el)});
   }else{document.querySelectorAll('.fade').forEach(function(el){el.classList.add('vis')});}
+})();
+(function(){
+  /* team circle, mobile + desktop: click/tap a founder to zoom their full detail — including their
+     bio — into a centered card over a dimmed backdrop. Same shared modal on every breakpoint; the
+     ring itself just shows less at mobile widths (see the <=900px rules above). */
+  var wz=document.getElementById('wheelZoom');
+  if(!wz)return;
+  var card=wz.querySelector('.wheel-zoom-card'),
+      elAvatar=document.getElementById('wzAvatar'),
+      elName=document.getElementById('wzName'),
+      elCreds=document.getElementById('wzCreds'),
+      elRole=document.getElementById('wzRole'),
+      elCert=document.getElementById('wzCert'),
+      elBio=document.getElementById('wzBio'),
+      lastTrigger=null;
+  function openZoom(member,trigger){
+    var av=member.querySelector('.avatar'),h3=member.querySelector('h3'),
+        creds=member.querySelector('.creds'),role=member.querySelector('.role'),cert=member.querySelector('.cert'),
+        bio=member.querySelector('.bio');
+    elAvatar.textContent=av?av.textContent:'';
+    elName.textContent=h3?h3.textContent:'';
+    elCreds.textContent=creds?creds.textContent:'';
+    elCreds.style.display=creds?'':'none';
+    elRole.innerHTML=role?role.innerHTML:'';
+    elRole.style.display=role?'':'none';
+    elCert.innerHTML=cert?cert.innerHTML:'';
+    elCert.style.display=cert?'':'none';
+    if(elBio){elBio.textContent=bio?bio.textContent:'';elBio.style.display=bio?'':'none';}
+    lastTrigger=trigger||null;
+    wz.classList.add('open');wz.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    var closeBtn=wz.querySelector('.wheel-zoom-close');if(closeBtn)closeBtn.focus();
+  }
+  function closeZoom(){
+    wz.classList.remove('open');wz.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    if(lastTrigger&&lastTrigger.focus)lastTrigger.focus();
+  }
+  document.querySelectorAll('.team-wheel .spoke .member').forEach(function(m){
+    m.setAttribute('tabindex','0');
+    m.setAttribute('role','button');
+    m.setAttribute('aria-label','View bio: '+(m.querySelector('h3')?m.querySelector('h3').textContent:'founder'));
+    m.addEventListener('click',function(){openZoom(m,m);});
+    m.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openZoom(m,m);}});
+  });
+  wz.querySelectorAll('[data-wz-close]').forEach(function(el){el.addEventListener('click',closeZoom)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&wz.classList.contains('open'))closeZoom();});
+  card.addEventListener('click',function(e){e.stopPropagation();});
 })();
 </script>
 </body>
