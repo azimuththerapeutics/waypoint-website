@@ -529,7 +529,7 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
 <!-- PREVIEW GATE: remove this block + its CSS + its JS at launch -->
 <div id="gate" hidden>
   <div class="gvid" aria-hidden="true">
-    <video id="gvideo" muted playsinline preload="auto"><source src="waypoint-gate.mp4" type="video/mp4"><source src="waypoint-gate.webm" type="video/webm"></video>
+    <video id="gvideo" muted playsinline preload="none"></video>
   </div>
   <div class="gteaser">
     <div class="tsplash">
@@ -995,19 +995,61 @@ body.gated{overflow:hidden;position:fixed;inset:0;width:100%}
       }
 
       /* -- one continuous video (intro + definition concatenated into a single file, no swap/crossfade
-         seam); holds the settled final frame until 14.8s total (the file's own runtime), no skipping -- */
-      if(reduce||!vid){showTeaser();}
+         seam), 8.7s — one round only, no repeat — then hand off to the teaser.
+
+         WHY THIS FETCHES THE CLIP INSTEAD OF JUST SETTING A src:
+         the <video> element's own streaming loader proved unreliable in the field — it would sit at
+         readyState 0 ("no data") with networkState 2 ("still loading") indefinitely, no error event,
+         no play() rejection, so the animation silently never appeared. That happened across BOTH the
+         mp4 and the webm and on an unrelated clip too, while a plain fetch() of the very same URL
+         returned the correct bytes every time. So the media element's network path is the weak link,
+         not the files. We sidestep it: pull the clip down with fetch(), wrap it in a Blob with an
+         explicit MIME type (also immunises us against a wrong Content-Type from the CDN), and play it
+         from memory. No range requests, no progressive streaming, no partial-content negotiation.
+         The clip is ~220KB, so buffering it whole costs nothing and progressive playback bought us
+         nothing anyway. If fetch() itself fails we fall back to the old direct-src behaviour. -- */
+      var settled=false;
+      function endIntro(){if(settled)return;settled=true;showTeaser();}
+
+      if(reduce||!vid||!window.fetch){endIntro();}
       else{
-        var t0=null;
-        vid.addEventListener('playing',function(){if(t0===null)t0=Date.now();},{once:true});
-        vid.addEventListener('ended',function(){
-          var elapsed=t0?Date.now()-t0:14800;
-          setTimeout(showTeaser,Math.max(14800-elapsed,0));
-        });
-        vid.addEventListener('error',showTeaser);
-        setTimeout(showTeaser,18000); /* failsafe if video stalls */
-        var p=vid.play&&vid.play();
-        if(p&&p.catch)p.catch(showTeaser); /* autoplay blocked (e.g. Low Power Mode) -> straight to teaser */
+        /* bail to the teaser if nothing is actually playing within 10s — never strand a visitor on a
+           blank screen the way the old 18s stall-failsafe could */
+        var bail=setTimeout(endIntro,10000);
+
+        function runClip(src){
+          vid.src=src;
+          vid.addEventListener('ended',endIntro);
+          vid.addEventListener('error',endIntro);
+          vid.addEventListener('playing',function(){
+            clearTimeout(bail);
+            /* backstop in case 'ended' never fires (some mobile browsers drop it) */
+            var d=(isFinite(vid.duration)&&vid.duration>0)?vid.duration:8.7;
+            setTimeout(endIntro,d*1000+2000);
+          },{once:true});
+          var p=vid.play&&vid.play();
+          if(p&&p.catch)p.catch(endIntro); /* autoplay blocked (e.g. Low Power Mode) -> straight to teaser */
+        }
+
+        /* pick a file this browser actually admits it can decode, rather than trusting <source> order */
+        var pick=null;
+        if(vid.canPlayType('video/mp4; codecs="avc1.64001f"'))      pick={u:'waypoint-gate.mp4', t:'video/mp4'};
+        else if(vid.canPlayType('video/webm; codecs="vp9"'))        pick={u:'waypoint-gate.webm',t:'video/webm'};
+        else if(vid.canPlayType('video/mp4'))                       pick={u:'waypoint-gate.mp4', t:'video/mp4'};
+
+        if(!pick){endIntro();}
+        else{
+          fetch(pick.u).then(function(r){
+            if(!r.ok)throw new Error('http '+r.status);
+            return r.arrayBuffer();
+          }).then(function(buf){
+            if(settled)return;
+            runClip(URL.createObjectURL(new Blob([buf],{type:pick.t})));
+          })['catch'](function(){
+            if(settled)return;
+            runClip(pick.u); /* fetch path unavailable — let the element try the network itself */
+          });
+        }
       }
 
       /* -- password: unlocks the rest of the site. Everything past the teaser (mission, services,
