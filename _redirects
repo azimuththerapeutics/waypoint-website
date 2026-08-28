@@ -1,0 +1,6 @@
+# ---- SITE PAUSED ----
+# The public root serves the animation-only holding page. The full site is
+# untouched and still reachable at /preview.
+# TO UN-PAUSE: delete this file (or comment out the "/" line below).
+/preview   /index.html   200
+/          /hold.html    200

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>Waypoint Cooperative</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23284389'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --navy-deep:#16224e;
+    --navy-deeper:#0f1836;
+    --serif:'Cormorant Garamond',Georgia,serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:radial-gradient(130% 85% at 50% 8%,#182a58 0%,var(--navy-deep) 40%,var(--navy-deeper) 100%);
+    color:#fff;
+    overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* the clip is letterboxed on the same navy it was rendered against, so the
+     edges disappear and it reads as a full-bleed scene at any aspect ratio —
+     phone portrait, tablet, laptop, and ultrawide alike */
+  #clip{
+    width:100%;height:100%;
+    object-fit:contain;
+    display:block;
+    background:transparent;
+    opacity:0;transition:opacity .6s ease;
+  }
+  #clip.on{opacity:1}
+
+  /* shown only if the clip cannot play at all — never leave a blank navy screen */
+  #fallback{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    text-align:center;font-family:var(--serif);color:#fff;
+    opacity:0;transition:opacity .6s ease;pointer-events:none;padding:0 24px;
+  }
+  #fallback.on{opacity:1}
+  #fallback .n{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:500;letter-spacing:.01em}
+  #fallback .t{font-style:italic;font-size:clamp(1rem,2.6vw,1.3rem);margin-top:14px;opacity:.85}
+  @media(prefers-reduced-motion:reduce){
+    #clip,#fallback{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<video id="clip" muted playsinline preload="none" disablepictureinpicture controlslist="nodownload noplaybackrate"></video>
+
+<div id="fallback" aria-hidden="true">
+  <div class="n">Waypoint Cooperative</div>
+  <div class="t">Growing together.</div>
+</div>
+
+<script>
+(function(){
+  var v = document.getElementById('clip'),
+      fb = document.getElementById('fallback'),
+      reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches,
+      done = false;
+
+  function showFallback(){
+    if(done) return; done = true;
+    v.style.display = 'none';
+    fb.classList.add('on');
+  }
+
+  /* The clip fades out over its final beats so it can dissolve into the site's
+     splash. On this holding page there is nothing to dissolve into, so we stop
+     just shy of that fade and rest on the finished "way point" card instead of
+     letting it wash out to empty navy. */
+  var HOLD_BACK = 0.45;
+
+  function armHold(){
+    var stopAt = (isFinite(v.duration) && v.duration > HOLD_BACK)
+               ? v.duration - HOLD_BACK : null;
+    if(stopAt === null) return;
+    v.addEventListener('timeupdate', function(){
+      if(v.currentTime >= stopAt){
+        try{ v.pause(); v.currentTime = stopAt; }catch(e){}
+      }
+    });
+    if(reduce){
+      /* no motion: land straight on the finished card */
+      try{ v.pause(); v.currentTime = stopAt; }catch(e){}
+      v.classList.add('on');
+    }
+  }
+
+  function run(src){
+    v.src = src;
+    v.addEventListener('loadedmetadata', armHold, {once:true});
+    v.addEventListener('error', showFallback);
+    if(reduce) return;              /* armHold seeks + holds; never plays */
+    v.addEventListener('playing', function(){ v.classList.add('on'); }, {once:true});
+    var p = v.play && v.play();
+    if(p && p.catch) p.catch(showFallback);
+  }
+
+  /* Same loading strategy the main site landed on: the <video> element's own
+     streaming loader proved unreliable in the field (stalling at readyState 0
+     with no error), while a plain fetch() of the identical URL always returned
+     the bytes. So we pull the clip down ourselves and play it from memory. */
+  var pick = null;
+  if(v.canPlayType('video/mp4; codecs="avc1.64001f"'))   pick = {u:'waypoint-gate.mp4',  t:'video/mp4'};
+  else if(v.canPlayType('video/webm; codecs="vp9"'))     pick = {u:'waypoint-gate.webm', t:'video/webm'};
+  else if(v.canPlayType('video/mp4'))                    pick = {u:'waypoint-gate.mp4',  t:'video/mp4'};
+
+  if(!pick || !window.fetch){ showFallback(); }
+  else{
+    var bail = setTimeout(showFallback, 12000);
+    fetch(pick.u).then(function(r){
+      if(!r.ok) throw new Error('http ' + r.status);
+      return r.arrayBuffer();
+    }).then(function(buf){
+      clearTimeout(bail);
+      if(done) return;
+      run(URL.createObjectURL(new Blob([buf], {type: pick.t})));
+    })['catch'](function(){
+      clearTimeout(bail);
+      if(done) return;
+      run(pick.u);   /* fetch unavailable — let the element try the network */
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
