@@ -97,10 +97,23 @@
 
   function run(src){
     v.src = src;
-    v.addEventListener('loadedmetadata', armHold, {once:true});
+
+    /* Watchdog that outlives the download. Getting the bytes is only half the
+       job — this site has already been bitten once by a <video> that accepts a
+       source and then sits at readyState 0 forever with no error event. If the
+       picture is not actually moving shortly after we hand over the clip, fall
+       back to the wordmark rather than leaving someone on an empty navy page. */
+    var watchdog = setTimeout(showFallback, 6000);
+    function started(){ clearTimeout(watchdog); }
+
+    v.addEventListener('loadedmetadata', function(){
+      armHold();
+      if(reduce) started();         /* reduced motion never fires 'playing' */
+    }, {once:true});
     v.addEventListener('error', showFallback);
+
     if(reduce) return;              /* armHold seeks + holds; never plays */
-    v.addEventListener('playing', function(){ v.classList.add('on'); }, {once:true});
+    v.addEventListener('playing', function(){ started(); v.classList.add('on'); }, {once:true});
     var p = v.play && v.play();
     if(p && p.catch) p.catch(showFallback);
   }
