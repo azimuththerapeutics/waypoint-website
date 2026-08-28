@@ -2,5 +2,10 @@
 # The public root serves the animation-only holding page. The full site is
 # untouched and still reachable at /preview.
 # TO UN-PAUSE: delete this file (or comment out the "/" line below).
+#
+# The "!" on the root rule is required: Netlify only applies a rewrite when no
+# real file matches, and "/" resolves to the actual index.html. The force flag
+# is scoped to "/" alone, so every other path -- the videos, the photo, the
+# fonts -- still resolves to its real file and the animation can load.
 /preview   /index.html   200
-/          /hold.html    200
+/          /hold.html    200!
